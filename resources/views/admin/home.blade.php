@@ -14,11 +14,12 @@
                     </div>
                     @endif
 
-                    <div class="">
-                        <h1>Benvenuto {{ Auth::user()->name }}</h1>
+                    <div class="text-center">
+                        <h1 class="mb-5">Benvenuto {{ Auth::user()->name }}</h1>
                         <a class="btn btn-secondary" href="{{ route('admin.aperitifs.index') }}">Aperitifs</a>
                         <a class="btn btn-secondary" href="{{ route('admin.desserts.index') }}">Desserts</a>
                         <a class="btn btn-secondary" href="{{ route('admin.long_drinks.index') }}">Long Drinks</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.special_long_drinks.index') }}">Special Long Drinks</a>
                         <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">Beers</a>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
 use App\Http\Controllers\DessertController;
 use App\Http\Controllers\LongDrinkController;
+use App\Http\Controllers\SpecialLongDrinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/desserts',  DessertController::class);
     //LongDrinks
     Route::resource('/long_drinks',  LongDrinkController::class);
+    //SpecialLongDrinks
+    Route::resource('/special_long_drinks',  SpecialLongDrinkController::class);
     //Birre
     Route::resource('/beers',  BeerController::class);
 
