@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
     
+    //Aperitis
+    Route::resource('/aperitifs',  AperitifController::class);
     //Birre
     Route::resource('/beers',  BeerController::class);
 

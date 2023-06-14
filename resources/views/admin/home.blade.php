@@ -16,8 +16,8 @@
 
                     <div class="">
                         <h1>Benvenuto {{ Auth::user()->name }}</h1>
-
-                        <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">birre</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.aperitifs.index') }}">Aperitifs</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">Beers</a>
                     </div>
                 </div>
             </div>
