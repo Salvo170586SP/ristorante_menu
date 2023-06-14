@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
+use App\Http\Controllers\DessertController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     
     //Aperitis
     Route::resource('/aperitifs',  AperitifController::class);
+    //Dessert
+    Route::resource('/desserts',  DessertController::class);
     //Birre
     Route::resource('/beers',  BeerController::class);
 
