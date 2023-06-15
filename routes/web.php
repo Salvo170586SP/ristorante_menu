@@ -7,6 +7,7 @@ use App\Http\Controllers\DessertController;
 use App\Http\Controllers\InternationalLongDrinkController;
 use App\Http\Controllers\LongDrinkController;
 use App\Http\Controllers\RedWineController;
+use App\Http\Controllers\SoftDrinkController;
 use App\Http\Controllers\SpecialLongDrinkController;
 use App\Http\Controllers\WhiskyController;
 use App\Http\Controllers\WhiteWineController;
@@ -51,6 +52,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/bitter_drinks',  BitterDrinkController::class);
     //Whiskies
     Route::resource('/whiskies',  WhiskyController::class);
+     //Soft Drinks
+     Route::resource('/soft_drinks',  SoftDrinkController::class);
+     //Bottles
+    //  Route::resource('/bottles',  BottleController::class);
 });
 
 

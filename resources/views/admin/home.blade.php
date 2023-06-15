@@ -26,6 +26,8 @@
                         <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">Beers</a>
                         <a class="btn btn-secondary" href="{{ route('admin.bitter_drinks.index') }}">Amari</a>
                         <a class="btn btn-secondary" href="{{ route('admin.whiskies.index') }}">Whiskies</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.soft_drinks.index') }}">Soft Drinks</a>
+                        {{-- <a class="btn btn-secondary" href="{{ route('admin.bottles.index') }}">Bottles</a> --}}
                     </div>
                 </div>
             </div>
