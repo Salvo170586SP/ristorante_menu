@@ -3,6 +3,7 @@
 use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
 use App\Http\Controllers\BitterDrinkController;
+use App\Http\Controllers\BottleController;
 use App\Http\Controllers\DessertController;
 use App\Http\Controllers\InternationalLongDrinkController;
 use App\Http\Controllers\LongDrinkController;
@@ -55,7 +56,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
      //Soft Drinks
      Route::resource('/soft_drinks',  SoftDrinkController::class);
      //Bottles
-    //  Route::resource('/bottles',  BottleController::class);
+     Route::resource('/bottles',  BottleController::class);
 });
 
 
