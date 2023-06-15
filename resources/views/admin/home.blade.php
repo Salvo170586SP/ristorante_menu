@@ -24,6 +24,7 @@
                         <a class="btn btn-secondary" href="{{ route('admin.white_wines.index') }}">White Wines</a>
                         <a class="btn btn-secondary" href="{{ route('admin.red_wines.index') }}">Red Wines</a>
                         <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">Beers</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.bitter_drinks.index') }}">Amari</a>
                     </div>
                 </div>
             </div>
