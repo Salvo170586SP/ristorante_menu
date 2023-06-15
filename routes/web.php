@@ -5,6 +5,7 @@ use App\Http\Controllers\BeerController;
 use App\Http\Controllers\DessertController;
 use App\Http\Controllers\InternationalLongDrinkController;
 use App\Http\Controllers\LongDrinkController;
+use App\Http\Controllers\RedWineController;
 use App\Http\Controllers\SpecialLongDrinkController;
 use App\Http\Controllers\WhiteWineController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,7 @@ Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
-    
+
     //Aperitis
     Route::resource('/aperitifs',  AperitifController::class);
     //Dessert
@@ -38,15 +39,15 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/special_long_drinks',  SpecialLongDrinkController::class);
     //InternationaLongDrinks
     Route::resource('/international_long_drinks',  InternationalLongDrinkController::class);
-    //White Wines
+    //WhiteWines
     Route::resource('/white_wines',  WhiteWineController::class);
-    //Birre
+    //RedWines
+    Route::resource('/red_wines',  RedWineController::class);
+    //Beers
     Route::resource('/beers',  BeerController::class);
-
 });
 
 
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where('any', '.*');
-
