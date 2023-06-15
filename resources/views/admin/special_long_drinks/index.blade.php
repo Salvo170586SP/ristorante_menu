@@ -64,7 +64,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td>Non ci sono Long Drinks in lista</td>
+                        <td>Non ci sono Special Long Drinks in lista</td>
                     </tr>
                     @endforelse
                 </tbody>
