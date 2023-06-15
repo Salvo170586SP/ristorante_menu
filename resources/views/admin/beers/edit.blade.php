@@ -1,23 +1,22 @@
-<x-app-layout>
-    <div class="container  mx-auto flex flex-col justify-center">
+@extends('layouts.app')
 
-        <h1 class="text-3xl my-9">Modifica Birra</h1>
-
-        <div class="flex justify-between align-center py-5">
-            <a href="{{ route('admin.beers.index') }}" class="rounded-lg shadow text-white py-3 px-5  bg-gray-600 mx-2">Torna alla lista</a>
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center py-5">
+            <h1 class="text-3xl my-9">Modifica Beer</h1>
+            <a href="{{ route('admin.beers.index') }}" class="btn btn-secondary shadow">Torna alla lista</a>
         </div>
-        @include('includes.errorsAlert')
-        <div class="mx-auto">
-            <form action="{{ route('admin.beers.update', $beer->id) }}" method="post" class="flex flex-col align-center justify-center">
+        <div class="col-12">
+            @include('includes.errorsAlert')
+            <form action="{{ route('admin.beers.update', $beer->id) }}" method="post" class="mt-5">
                 @csrf
                 @method('put')
-                
                 @include('admin.beers.form')
-                
-                <div class="text-end">
-                    <button type="submit" class="rounded-lg shadow text-white py-3 px-5  bg-gray-600 m-3">Modifica</button>
-                </div>
+                <button type="submit" class="btn btn-primary shadow">Modifica</button>
             </form>
         </div>
     </div>
-</x-app-layout>
+</div>
+@endsection
+

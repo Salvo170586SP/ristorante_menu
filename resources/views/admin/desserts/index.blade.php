@@ -64,7 +64,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td>Non ci sono aperitifs in lista</td>
+                        <td>Non ci sono desserts in lista</td>
                     </tr>
                     @endforelse
                 </tbody>

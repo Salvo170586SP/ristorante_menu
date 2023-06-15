@@ -1,29 +1,23 @@
-<x-app-layout>
-    <div class="container  mx-auto flex flex-col justify-center">
+@extends('layouts.app')
 
-        <h1 class="text-3xl my-9">Dettaglio Birra</h1>
-
-        <div class="flex justify-between align-center py-5">
-            <a href="{{ route('admin.beers.index') }}" class="rounded-lg shadow text-white py-3 px-5  bg-gray-600 mx-2">Torna indietro</a>
+@section('content')    
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center py-5">
+            <h1>Dettaglio Beer</h1>
+            <a href="{{ route('admin.beers.index') }}" class="btn btn-secondary shadow">Torna alla lista</a>
         </div>
 
-        <div class="bg-white py-5">
-
-            <h1 class="text-3xl">
-                Nome: {{ $beer->name }}
-            </h1>
-            <h2 class="text-lg">
-                CL: @if($beer->cl) {{ $beer->cl }}cl @else -- @endif
-            </h2>
-            <span class="text-xl">
-                Prezzo: @if($beer->price) €{{ $beer->price }} @else -- @endif
-            </span>
-
-            <p class="text-xl">
-                Descrizione: @if($beer->description) {{ $beer->description }} @else -- @endif
-            </p>
-
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title">Nome: {{ $beer->name }}</h2>
+                    <h5>Prezzo Bottiglia: @if($beer->price_bottle) €{{ $beer->price_bottle }} @else -- @endif</h5>
+                    <h5>Prezzo Calice: @if($beer->price_goblet) €{{ $beer->price_goblet }} @else -- @endif</h5>
+                    <p class="card-text">Descrizione: @if($beer->description) {{ $beer->description }} @else -- @endif</p>
+                </div>
+            </div>
         </div>
-
     </div>
-</x-app-layout>
+</div>
+@endsection
