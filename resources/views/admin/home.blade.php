@@ -21,6 +21,7 @@
                         <a class="btn btn-secondary" href="{{ route('admin.long_drinks.index') }}">Long Drinks</a>
                         <a class="btn btn-secondary" href="{{ route('admin.special_long_drinks.index') }}">Special Long Drinks</a>
                         <a class="btn btn-secondary" href="{{ route('admin.international_long_drinks.index') }}">International Long Drinks</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.white_wines.index') }}">White Wines</a>
                         <a class="btn btn-secondary" href="{{ route('admin.beers.index') }}">Beers</a>
                     </div>
                 </div>
