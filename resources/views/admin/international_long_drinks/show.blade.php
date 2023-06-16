@@ -12,7 +12,7 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h3 class="card-title">Nome: {{ $internationalLongDrink->name }}</h3>
-                    <h4>Prezzo: @if($internationalLongDrink->price) €{{ $internationalLongDrink->price }} @else -- @endif</h4>
+                    <h4>Prezzo: @if($internationalLongDrink->price) €{{ number_format($internationalLongDrink->price, 2, '.', ',') }} @else -- @endif</h4>
                     <p class="card-text">Descrizione: @if($internationalLongDrink->description) {{ $internationalLongDrink->description }} @else -- @endif</p>
                 </div>
             </div>

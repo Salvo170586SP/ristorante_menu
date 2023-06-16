@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InternationalLongDrink;
+use Exception;
 use Illuminate\Http\Request;
 
 class InternationalLongDrinkController extends Controller
@@ -32,9 +33,11 @@ class InternationalLongDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:international_long_drinks',
+            'price' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
         ]);
 
         try {
@@ -74,8 +77,10 @@ class InternationalLongDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'price' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
         ]);
 
         try {

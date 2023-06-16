@@ -12,8 +12,8 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h2 class="card-title">Nome: {{ $beer->name }}</h2>
-                    <h5>Prezzo Bottiglia: @if($beer->price_bottle) €{{ $beer->price_bottle }} @else -- @endif</h5>
-                    <h5>Prezzo Calice: @if($beer->price_goblet) €{{ $beer->price_goblet }} @else -- @endif</h5>
+                    <h5>Prezzo: @if($beer->price) €{{ number_format($beer->price, 2, '.', ',')  }}  @else -- @endif</h5>
+                    <h5>Quantità: @if($beer->cl) {{ $beer->cl }}cl @else -- @endif</h5>
                     <p class="card-text">Descrizione: @if($beer->description) {{ $beer->description }} @else -- @endif</p>
                 </div>
             </div>

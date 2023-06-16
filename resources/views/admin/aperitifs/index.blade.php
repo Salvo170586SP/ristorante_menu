@@ -27,7 +27,7 @@
                         <td>{{ $aperitif->id }}</td>
                         <td>{{ $aperitif->name }}</td>
                         <td>@if($aperitif->description) {{ $aperitif->description }} @else -- @endif</td>
-                        <td>@if($aperitif->price) €{{ $aperitif->price }} @else -- @endif</td>
+                        <td>@if($aperitif->price) €{{ number_format($aperitif->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary shadow">Vedi</a>

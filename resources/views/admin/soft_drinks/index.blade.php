@@ -28,7 +28,7 @@
                         <td>{{ $soft_drink->id }}</td>
                         <td>{{ $soft_drink->name }}</td>
                         <td>@if($soft_drink->description) {{ $soft_drink->description }} @else -- @endif</td>
-                        <td>@if($soft_drink->price) €{{ $soft_drink->price }} @else -- @endif</td>
+                        <td>@if($soft_drink->price) €{{ number_format($soft_drink->price, 2, '.', ',') }} @else -- @endif</td>
                         <td>@if($soft_drink->quantity_cl) {{ $soft_drink->quantity_cl }}cl @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">

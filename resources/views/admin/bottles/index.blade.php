@@ -28,7 +28,7 @@
                         <td>{{ $bottle->id }}</td>
                         <td>{{ $bottle->name }}</td>
                         <td>@if($bottle->description) {{ $bottle->description }} @else -- @endif</td>
-                        <td>@if($bottle->price) €{{ $bottle->price }} @else -- @endif</td>
+                        <td>@if($bottle->price) €{{ number_format($bottle->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($bottle->quantity_lt) {{ $bottle->quantity_lt }}lt @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">

@@ -27,7 +27,7 @@
                         <td>{{ $long_drink->id }}</td>
                         <td>{{ $long_drink->name }}</td>
                         <td>@if($long_drink->description) {{ $long_drink->description }} @else -- @endif</td>
-                        <td>@if($long_drink->price) €{{ $long_drink->price }} @else -- @endif</td>
+                        <td>@if($long_drink->price) €{{ number_format($long_drink->price, 2, '.', ',') }} @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('admin.long_drinks.show', $long_drink->id) }}" class="btn btn-primary shadow">Vedi</a>

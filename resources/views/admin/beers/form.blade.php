@@ -10,10 +10,9 @@
 
     <div class="col-4">
         <label for="beer-price">Prezzo</label>
-        <input type="text" class="form-control"  value="{{ old('price', isset($beer) ?  $beer->price : '') }}" id="beer-price" name="price">
-        <span class="text-sm">*decimali con il punto</span>
+        <input type="text" class="form-control" placeholder="0.00€" max="5" value="{{ old('price', isset($beer) ?  number_format($beer->price, 2, '.', ',') : '') }}" id="beer-price" name="price">
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-3">
         <label for="beer-description">Descrizione</label>
         <textarea name="description" class="form-control"  id="beer-description" cols="30" rows="5" style="margin-bottom: 20px">{{ old('description', isset($beer) ?  $beer->description : '') }}</textarea>
     </div>
