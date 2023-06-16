@@ -24,12 +24,12 @@
                     <p class="card-text">Descrizione: @if($white_wine->description) {{ $white_wine->description }} @else -- @endif</p>
                     <a href="{{ route('admin.white_wines.show', $white_wine->id) }}" class="btn btn-primary shadow">Vedi</a>
                     <a href="{{ route('admin.white_wines.edit', $white_wine->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $white_wine->id }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $white_wine->id }}">
                         Elimina
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-{{ $white_wine->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalMobile-{{ $white_wine->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

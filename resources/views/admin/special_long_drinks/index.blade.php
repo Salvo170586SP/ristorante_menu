@@ -23,12 +23,12 @@
                     <p class="card-text">Descrizione: @if($special_long_drink->description) {{ $special_long_drink->description }} @else -- @endif</p>
                     <a href="{{ route('admin.special_long_drinks.show', $special_long_drink->id) }}" class="btn btn-primary shadow">Vedi</a>
                     <a href="{{ route('admin.special_long_drinks.edit', $special_long_drink->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $special_long_drink->id }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $special_long_drink->id }}">
                         Elimina
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-{{ $special_long_drink->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalMobile-{{ $special_long_drink->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

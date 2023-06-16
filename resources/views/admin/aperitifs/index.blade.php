@@ -21,12 +21,12 @@
                     <p class="card-text">Descrizione: @if($aperitif->description) {{ $aperitif->description }} @else -- @endif</p>
                     <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary shadow">Vedi</a>
                     <a href="{{ route('admin.aperitifs.edit', $aperitif->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $aperitif->id }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $aperitif->id }}">
                         Elimina
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-{{ $aperitif->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalMobile-{{ $aperitif->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

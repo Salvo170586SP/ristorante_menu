@@ -23,12 +23,12 @@
                     <p class="card-text">Descrizione: @if($bottle->description) {{ $bottle->description }} @else -- @endif</p>
                     <a href="{{ route('admin.bottles.show', $bottle->id) }}" class="btn btn-primary shadow">Vedi</a>
                     <a href="{{ route('admin.bottles.edit', $bottle->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $bottle->id }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $bottle->id }}">
                         Elimina
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-{{ $bottle->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalMobile-{{ $bottle->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -56,7 +56,6 @@
 
         {{-- FULL SCREEN --}}
         <div class="d-none col-md-12 d-md-block mt-5">
-            @include('includes.alert')
             <a href="{{ route('admin.bottles.create') }}" class="btn btn-primary shadow mb-3 px-5 py-2">Crea</a>
             <h6>Totale dei prodotti in tabella: {{ count($bottles) }}</h6>
             <table class="table shadow">

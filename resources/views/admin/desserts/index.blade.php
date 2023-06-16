@@ -22,12 +22,12 @@
                     <p class="card-text">Descrizione: @if($dessert->description) {{ $dessert->description }} @else -- @endif</p>
                     <a href="{{ route('admin.desserts.show', $dessert->id) }}" class="btn btn-primary shadow">Vedi</a>
                     <a href="{{ route('admin.desserts.edit', $dessert->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $dessert->id }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $dessert->id }}">
                         Elimina
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal-{{ $dessert->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalMobile-{{ $dessert->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
