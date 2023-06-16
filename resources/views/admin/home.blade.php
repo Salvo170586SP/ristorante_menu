@@ -15,7 +15,7 @@
                     @endif
 
                     <div class="text-center">
-                        <h1 class="mb-3">Benvenuto {{ Auth::user()->name }}</h1>
+                        <h1 class="mb-3">Benvenuto {{ucfirst(Auth::user()->name)}}</h1>
 
                         <h5 class="mb-3">Le tue liste</h5>
 
