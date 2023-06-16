@@ -33,8 +33,8 @@ class BitterDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:beers',
-            'price' => 'numeric',
-            'quantity_cl' => 'numeric',
+            'price' => 'numeric|nullable',
+            'quantity_cl' => 'numeric|nullable',
 
         ], [
             'name.required' => 'Il nome è richiesto',
@@ -82,8 +82,8 @@ class BitterDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'price' => 'numeric',
-            'quantity_cl' => 'numeric',
+            'price' => 'numeric|nullable',
+            'quantity_cl' => 'numeric|nullable',
 
         ], [
             'name.required' => 'Il nome è richiesto',

@@ -9,15 +9,10 @@
             <a href="{{ route('admin.beers.index') }}" class="btn btn-secondary shadow">Torna alla lista</a>
         </div>
         <div class="col-12">
-                 {{-- @include('includes.errorsAlert') --}}
                 <form action="{{ route('admin.beers.store') }}" method="post" class="mt-5">
                     @csrf
-
                     @include('admin.beers.form')
-
-                    <div {{-- class="text-end" --}}>
-                        <button class="btn btn-primary shadow">Crea</button>
-                    </div>
+                    <button class="btn btn-primary shadow">Crea</button>
                 </form>
              
         </div>

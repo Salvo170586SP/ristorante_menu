@@ -32,8 +32,8 @@ class WhiteWineController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:white_wines',
-            'price_bottle' => 'numeric',
-            'price_goblet' => 'numeric',
+            'price_bottle' => 'numeric|nullable',
+            'price_goblet' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
@@ -79,8 +79,8 @@ class WhiteWineController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'price_bottle' => 'numeric',
-            'price_goblet' => 'numeric',
+            'price_bottle' => 'numeric|nullable',
+            'price_goblet' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'price_bottle.numeric' => 'il campo "prezzo bottiglia" può contenere solo numeri',
