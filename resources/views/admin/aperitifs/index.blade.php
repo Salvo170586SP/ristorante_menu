@@ -5,9 +5,13 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center">
             <h1 class="text-3xl my-9">Lista Aperitifs</h1>
-            <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2">Torna alla dashboard</a>
+            <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2 ">Torna alla dashboard</a>
+        </div>
+        <div class="col-12 col-sm d-sm-block d-md-none mt-4">
+            <a href="{{ route('admin.aperitifs.create') }}" class="btn btn-primary px-5 py-2 shadow mb-3 my-3 ">Crea</a>
         </div>
 
+        {{-- MOBILE --}}
         @foreach($aperitifs as $aperitif)
         <div class="col-sm d-sm-block d-md-none my-2">
             <div class="card">
@@ -48,6 +52,7 @@
         </div>
         @endforeach
 
+        {{-- FULL SCREEN --}}
         <div class="d-none col-md-12 d-md-block mt-5">
             @include('includes.alert')
             <a href="{{ route('admin.aperitifs.create') }}" class="btn btn-primary shadow mb-3 px-5 py-2">Crea</a>
