@@ -33,7 +33,7 @@ class AperitifController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:aperitifs',
-            'price' => 'numeric',
+            'price' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
@@ -77,7 +77,7 @@ class AperitifController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'price' => 'numeric',
+            'price' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'price.numeric' => 'il campo "prezzo" può contenere solo numeri',

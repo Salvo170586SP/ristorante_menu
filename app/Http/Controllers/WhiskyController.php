@@ -33,8 +33,8 @@ class WhiskyController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:whiskies',
-            'quantity_cl' => 'numeric',
-            'price' => 'numeric',
+            'quantity_cl' => 'numeric|nullable',
+            'price' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
@@ -80,8 +80,8 @@ class WhiskyController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'quantity_cl' => 'numeric',
-            'price' => 'numeric',
+            'quantity_cl' => 'numeric|nullable',
+            'price' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
             'quantity_cl.numeric' => 'il campo "quantità (cl)" può contenere solo numeri',
