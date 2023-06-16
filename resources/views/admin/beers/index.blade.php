@@ -21,8 +21,8 @@
                     <p class="card-text">Quantità: @if($beer->cl) {{ $beer->cl }}cl @else -- @endif</p>
                     <p class="card-text">Prezzo: @if($beer->price) €{{ number_format($beer->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p class="card-text">Descrizione: @if($beer->description) {{ $beer->description }} @else -- @endif</p>
-                    <a href="{{ route('admin.beers.show', $beer->id) }}" class="btn btn-primary shadow">Vedi</a>
-                    <a href="{{ route('admin.beers.edit', $beer->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                    <a href="{{ route('admin.beers.show', $beer->id) }}" class="btn btn-primary">Vedi</a>
+                    <a href="{{ route('admin.beers.edit', $beer->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $beer->id }}">
                         Elimina
                     </button>
@@ -80,8 +80,8 @@
                         <td>@if($beer->price) €{{ number_format($beer->price, 2, '.', ',')  }}  @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.beers.show', $beer->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.beers.edit', $beer->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.beers.show', $beer->id) }}" class="btn btn-primary">Vedi</a>
+                                <a href="{{ route('admin.beers.edit', $beer->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $beer->id }}">
                                     Elimina

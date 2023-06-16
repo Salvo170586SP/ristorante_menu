@@ -21,8 +21,8 @@
                     <p class="card-text">Prezzo: @if($bitter_drink->price) €{{ number_format($bitter_drink->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p class="card-text">Quantità: @if($bitter_drink->price) {{ $bitter_drink->quantity_cl }} @else -- @endif</p>
                     <p class="card-text">Descrizione: @if($bitter_drink->description) {{ $bitter_drink->description }} @else -- @endif</p>
-                    <a href="{{ route('admin.bitter_drinks.show', $bitter_drink->id) }}" class="btn btn-primary shadow">Vedi</a>
-                    <a href="{{ route('admin.bitter_drinks.edit', $bitter_drink->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                    <a href="{{ route('admin.bitter_drinks.show', $bitter_drink->id) }}" class="btn btn-primary">Vedi</a>
+                    <a href="{{ route('admin.bitter_drinks.edit', $bitter_drink->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $bitter_drink->id }}">
                         Elimina
                     </button>
@@ -79,8 +79,8 @@
                         <td>@if($bitter_drink->quantity_cl) {{ $bitter_drink->quantity_cl }}cl @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.bitter_drinks.show', $bitter_drink->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.bitter_drinks.edit', $bitter_drink->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.bitter_drinks.show', $bitter_drink->id) }}" class="btn btn-primary">Vedi</a>
+                                <a href="{{ route('admin.bitter_drinks.edit', $bitter_drink->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $bitter_drink->id }}">
                                     Elimina
