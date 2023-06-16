@@ -33,9 +33,13 @@ class SoftDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:soft_drinks',
+            'price' => 'numeric',
+            'quantity_cl' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
+            'quantity_cl.numeric' => 'il campo "quantità (cl)" può contenere solo numeri',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
         ]);
 
         try {
@@ -76,8 +80,12 @@ class SoftDrinkController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'quantity_cl' => 'numeric',
+            'price' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
+            'quantity_cl.numeric' => 'il campo "quantità (cl)" può contenere solo numeri',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
         ]);
 
         try {

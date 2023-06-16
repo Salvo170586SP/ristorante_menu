@@ -32,9 +32,13 @@ class RedWineController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:red_wines',
+            'price_bottle' => 'numeric',
+            'price_goblet' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
+            'price_bottle.numeric' => 'il campo "prezzo bottiglia" può contenere solo numeri',
+            'price_goblet.numeric' => 'il campo "prezzo calice" può contenere solo numeri',
         ]);
 
         try {
@@ -46,7 +50,7 @@ class RedWineController extends Controller
             $red_wine->save();
 
             return redirect()->route('admin.red_wines.index')->with('message', "$red_wine->name creato con successo");;
-        } catch (Exporter $e) {
+        } catch (Exception $e) {
 
             return redirect()->route('admin.red_wines.index')->with('message', 'Errore nella creazione');
         }
@@ -75,8 +79,12 @@ class RedWineController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'price_bottle' => 'numeric',
+            'price_goblet' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
+            'price_bottle.numeric' => 'il campo "prezzo bottiglia" può contenere solo numeri',
+            'price_goblet.numeric' => 'il campo "prezzo calice" può contenere solo numeri',
         ]);
 
         try {

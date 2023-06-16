@@ -33,9 +33,13 @@ class BeerController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:beers',
+            'price' => 'numeric',
+
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
+
         ]);
 
         try {
@@ -76,8 +80,12 @@ class BeerController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'price' => 'numeric',
+
         ], [
             'name.required' => 'Il nome è richiesto',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
+
         ]);
 
         try {

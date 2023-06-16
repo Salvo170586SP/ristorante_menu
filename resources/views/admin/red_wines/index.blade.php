@@ -28,8 +28,8 @@
                         <td>{{ $red_wine->id }}</td>
                         <td>{{ $red_wine->name }}</td>
                         <td>@if($red_wine->description) {{ $red_wine->description }} @else -- @endif</td>
-                        <td>@if($red_wine->price_bottle) €{{ $red_wine->price_bottle }} @else -- @endif</td>
-                        <td>@if($red_wine->price_goblet) €{{ $red_wine->price_goblet }} @else -- @endif</td>
+                        <td>@if($red_wine->price_bottle) €{{ number_format($red_wine->price_bottle, 2, '.', ',') }} @else -- @endif</td>
+                        <td>@if($red_wine->price_goblet) €{{ number_format($red_wine->price_goblet, 2, '.', ',') }} @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('admin.red_wines.show', $red_wine->id) }}" class="btn btn-primary shadow">Vedi</a>

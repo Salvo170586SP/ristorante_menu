@@ -23,24 +23,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($whiskies as $whiskie)
+                    @forelse($whiskies as $whisky)
                     <tr>
-                        <td>{{ $whiskie->id }}</td>
-                        <td>{{ $whiskie->name }}</td>
-                        <td>@if($whiskie->description) {{ $whiskie->description }} @else -- @endif</td>
-                        <td>@if($whiskie->price) €{{ $whiskie->price }} @else -- @endif</td>
-                        <td>@if($whiskie->quantity_cl) {{ $whiskie->quantity_cl }}cl @else -- @endif</td>
+                        <td>{{ $whisky->id }}</td>
+                        <td>{{ $whisky->name }}</td>
+                        <td>@if($whisky->description) {{ $whisky->description }} @else -- @endif</td>
+                        <td>@if($whisky->price) €{{ number_format($whisky->price, 2, '.', ',') }} @else -- @endif</td>
+                        <td>@if($whisky->quantity_cl) {{ $whisky->quantity_cl }}cl @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.whiskies.show', $whiskie->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.whiskies.edit', $whiskie->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.whiskies.show', $whisky->id) }}" class="btn btn-primary shadow">Vedi</a>
+                                <a href="{{ route('admin.whiskies.edit', $whisky->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $whiskie->id }}">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $whisky->id }}">
                                     Elimina
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal-{{ $whiskie->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal-{{ $whisky->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -48,11 +48,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h5>Sei sicuro di eliminare {{ $whiskie->name }}?</h5>
+                                                <h5>Sei sicuro di eliminare {{ $whisky->name }}?</h5>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                <form action="{{ route('admin.whiskies.destroy', $whiskie->id) }}" method="post" data-title="{{ $whiskie->name }}" class="delete-form">
+                                                <form action="{{ route('admin.whiskies.destroy', $whisky->id) }}" method="post" data-title="{{ $whisky->name }}" class="delete-form">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger shadow">Elimina</button>

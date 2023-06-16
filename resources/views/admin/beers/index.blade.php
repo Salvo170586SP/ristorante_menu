@@ -29,7 +29,7 @@
                         <td>{{ $beer->name }}</td>
                         <td>@if($beer->description) {{ $beer->description }} @else -- @endif</td>
                         <td>@if($beer->cl) {{ $beer->cl }}cl @else -- @endif</td>
-                        <td>@if($beer->price) €{{ $beer->price }} @else -- @endif</td>
+                        <td>@if($beer->price) €{{ number_format($beer->price, 2, '.', ',')  }}  @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('admin.beers.show', $beer->id) }}" class="btn btn-primary shadow">Vedi</a>

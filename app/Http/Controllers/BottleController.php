@@ -33,9 +33,13 @@ class BottleController extends Controller
     {
         $request->validate([
             'name' => 'required|string|unique:bottles',
+            'quantity_lt' => 'numeric',
+            'price' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
             'name.unique' => 'Il nome è già esistente',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
+            'quantity_lt.numeric' => 'il campo "quantità (lt)" può contenere solo numeri',
         ]);
 
         try {
@@ -76,8 +80,12 @@ class BottleController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'quantity_lt' => 'numeric',
+            'price' => 'numeric',
         ], [
             'name.required' => 'Il nome è richiesto',
+            'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
+            'quantity_lt.numeric' => 'il campo "quantità (lt)" può contenere solo numeri',
         ]);
 
         try {

@@ -9,7 +9,7 @@
         </div>
         <div class="col-12">
             @include('includes.errorsAlert')
-            <form action="{{ route('admin.whiskies.update', $whiskie->id) }}" method="post" class="mt-5">
+            <form action="{{ route('admin.whiskies.update', $whisky->id) }}" method="post" class="mt-5">
                 @csrf
                 @method('put')
                 @include('admin.whiskies.form')

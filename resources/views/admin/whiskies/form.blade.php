@@ -11,8 +11,7 @@
 
     <div class="col-4">
         <label for="whiskies-price_bottle">Prezzo</label>
-        <input type="text" placeholder="****.00" class="form-control @error('price') is-invalid @enderror"  value="{{ old('price', isset($whisky) ?  $whisky->price : '') }}" id="whiskies-price_bottle" name="price">
-        <span class="text-sm">*decimali con il punto</span>
+        <input type="text" placeholder="0.00€" class="form-control @error('price') is-invalid @enderror"  value="{{ old('price', isset($whisky) ? number_format($whisky->price, 2, '.', ',') : '') }}" id="whiskies-price_bottle" name="price">
         @error('price')
         <div class="invalid-feedback">
             {{ $message }}

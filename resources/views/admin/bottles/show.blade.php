@@ -12,7 +12,7 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h2 class="card-title">Nome: {{ $bottle->name }}</h2>
-                    <h5>Prezzo: @if($bottle->price) €{{ $bottle->price }} @else -- @endif</h5>
+                    <h5>Prezzo: @if($bottle->price) €{{ number_format($bottle->price, 2, '.', ',')  }} @else -- @endif</h5>
                     <h5>Quantità: @if($bottle->quantity_lt) {{ $bottle->quantity_lt }}lt @else -- @endif</h5>
                     <p class="card-text">Descrizione: @if($bottle->description) {{ $bottle->description }} @else -- @endif</p>
                 </div>
