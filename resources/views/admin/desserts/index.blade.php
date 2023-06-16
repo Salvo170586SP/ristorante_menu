@@ -20,8 +20,8 @@
                     <h5 class="card-title">Nome: {{ $dessert->name }}</h5>
                     <p class="card-text">Prezzo: @if($dessert->price) €{{ number_format($dessert->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p class="card-text">Descrizione: @if($dessert->description) {{ $dessert->description }} @else -- @endif</p>
-                    <a href="{{ route('admin.desserts.show', $dessert->id) }}" class="btn btn-primary shadow">Vedi</a>
-                    <a href="{{ route('admin.desserts.edit', $dessert->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                    <a href="{{ route('admin.desserts.show', $dessert->id) }}" class="btn btn-primary">Vedi</a>
+                    <a href="{{ route('admin.desserts.edit', $dessert->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $dessert->id }}">
                         Elimina
                     </button>
@@ -76,8 +76,8 @@
                         <td>@if($dessert->price) €{{ number_format($dessert->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.desserts.show', $dessert->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.desserts.edit', $dessert->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.desserts.show', $dessert->id) }}" class="btn btn-primary">Vedi</a>
+                                <a href="{{ route('admin.desserts.edit', $dessert->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $dessert->id }}">
                                     Elimina

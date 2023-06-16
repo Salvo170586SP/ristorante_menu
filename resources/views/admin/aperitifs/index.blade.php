@@ -19,8 +19,8 @@
                     <h5 class="card-title">Nome: {{ $aperitif->name }}</h5>
                     <p class="card-text">Prezzo: @if($aperitif->price) €{{ number_format($aperitif->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p class="card-text">Descrizione: @if($aperitif->description) {{ $aperitif->description }} @else -- @endif</p>
-                    <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary shadow">Vedi</a>
-                    <a href="{{ route('admin.aperitifs.edit', $aperitif->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                    <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary">Vedi</a>
+                    <a href="{{ route('admin.aperitifs.edit', $aperitif->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $aperitif->id }}">
                         Elimina
                     </button>
@@ -75,8 +75,8 @@
                         <td>@if($aperitif->price) €{{ number_format($aperitif->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.aperitifs.edit', $aperitif->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.aperitifs.show', $aperitif->id) }}" class="btn btn-primary">Vedi</a>
+                                <a href="{{ route('admin.aperitifs.edit', $aperitif->id) }}" class="btn btn-secondary  mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $aperitif->id }}">
                                     Elimina

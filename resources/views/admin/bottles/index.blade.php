@@ -21,8 +21,8 @@
                     <p class="card-text">Prezzo: @if($bottle->price) €{{ number_format($bottle->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p class="card-text">Prezzo: @if($bottle->quantity_lt) {{$bottle->quantity_lt }}lt @else -- @endif</p>
                     <p class="card-text">Descrizione: @if($bottle->description) {{ $bottle->description }} @else -- @endif</p>
-                    <a href="{{ route('admin.bottles.show', $bottle->id) }}" class="btn btn-primary shadow">Vedi</a>
-                    <a href="{{ route('admin.bottles.edit', $bottle->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                    <a href="{{ route('admin.bottles.show', $bottle->id) }}" class="btn btn-primary">Vedi</a>
+                    <a href="{{ route('admin.bottles.edit', $bottle->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $bottle->id }}">
                         Elimina
                     </button>
@@ -79,8 +79,8 @@
                         <td>@if($bottle->quantity_lt) {{ $bottle->quantity_lt }}lt @else -- @endif</td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin.bottles.show', $bottle->id) }}" class="btn btn-primary shadow">Vedi</a>
-                                <a href="{{ route('admin.bottles.edit', $bottle->id) }}" class="btn btn-secondary shadow mx-2">Modifica</a>
+                                <a href="{{ route('admin.bottles.show', $bottle->id) }}" class="btn btn-primary">Vedi</a>
+                                <a href="{{ route('admin.bottles.edit', $bottle->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $bottle->id }}">
                                     Elimina
