@@ -12,6 +12,7 @@
         </div>
         @include('includes.alert')
         {{-- MOBILE --}}
+        <div class="col-sm d-sm-block d-md-none">{{ $products->links() }}</div>
         @foreach($products as $product)
         <div class="col-sm d-sm-block d-md-none my-2">
             <div class="card">
@@ -61,7 +62,7 @@
         {{-- FULL SCREEN --}}
         <div class="d-none col-md-12 d-md-block mt-5">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary shadow mb-3 px-5 py-2">Crea</a>
-            <h6>Totale dei prodotti in tabella: {{ count($products) }}</h6>
+            {{-- <h6>Totale dei prodotti in tabella: {{ count($products) }}</h6> --}}
             <table class="table shadow">
                 <thead>
                     <tr>
@@ -134,6 +135,7 @@
                     @endforelse
                 </tbody>
             </table>
+            <div>{{ $products->links() }}</div>
         </div>
     </div>
 </div>

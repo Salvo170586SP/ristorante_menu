@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(5);
         return view('admin.products.index', compact('products'));
     }
 
@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|unique:products',
+            'name' => 'required|string',
             'price' => 'numeric|nullable',
             'price_bottle' => 'numeric|nullable',
             'price_goblet' => 'numeric|nullable',
@@ -42,7 +42,6 @@ class ProductController extends Controller
             'quantity_lt' => 'numeric|nullable',
         ], [
             'name.required' => 'Il nome è richiesto',
-            'name.unique' => 'Il nome è già esistente',
             'price.numeric' => 'il campo "prezzo" può contenere solo numeri',
             'price_bottle.numeric' => 'il campo "prezzo bottiglia" può contenere solo numeri',
             'price_goblet.numeric' => 'il campo "prezzo calice" può contenere solo numeri',
