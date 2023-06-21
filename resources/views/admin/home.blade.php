@@ -25,6 +25,10 @@
                                 <span>Elementi in lista</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.products.index') }}">Products</a></div>
+                                {{-- <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span> --}}
+                            </li>
+                          {{--   <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.aperitifs.index') }}">Aperitifs</a></div>
                                 <span class="badge bg-secondary rounded-pill">{{ count($aperitifs) }}</span>
                             </li>
@@ -73,7 +77,7 @@
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="fw-bold"><a class="btn btn-secondary" href="{{ route('admin.bottles.index') }}">Bottles</a></div>
                                 <span class="badge bg-secondary rounded-pill">{{ count($bottles) }}</span>
-                            </li>
+                            </li> --}}
                         </ol>
                     </div>
                 </div>

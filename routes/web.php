@@ -4,9 +4,11 @@ use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
 use App\Http\Controllers\BitterDrinkController;
 use App\Http\Controllers\BottleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DessertController;
 use App\Http\Controllers\InternationalLongDrinkController;
 use App\Http\Controllers\LongDrinkController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedWineController;
 use App\Http\Controllers\SoftDrinkController;
 use App\Http\Controllers\SpecialLongDrinkController;
@@ -32,6 +34,11 @@ Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
+
+    //Products
+    Route::resource('/products',  ProductController::class);
+    //Categories
+    Route::resource('/categories',  CategoryController::class);
 
     //Aperitis
     Route::resource('/aperitifs',  AperitifController::class);
