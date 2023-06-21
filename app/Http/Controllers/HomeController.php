@@ -2,18 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aperitif;
-use App\Models\Beer;
-use App\Models\BitterDrink;
-use App\Models\Bottle;
-use App\Models\Dessert;
-use App\Models\InternationalLongDrink;
-use App\Models\LongDrink;
-use App\Models\RedWine;
-use App\Models\SoftDrink;
-use App\Models\SpecialLongDrink;
-use App\Models\Whisky;
-use App\Models\WhiteWine;
+use App\Models\Product;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,20 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $aperitifs = Aperitif::all();
-        $desserts = Dessert::all();
-        $longDrinks = LongDrink::all();
-        $specialLongDrinks = SpecialLongDrink::all();
-        $internationalLongDrinks = InternationalLongDrink::all();
-        $whiteWines = WhiteWine::all();
-        $redWines = RedWine::all();
-        $beers = Beer::all();
-        $bitterDrinks = BitterDrink::all();
-        $whiskies = Whisky::all();
-        $softDrinks = SoftDrink::all();
-        $bottles = Bottle::all();
+    
+        $products = Product::all();
 
-
-        return view('admin.home', compact('aperitifs', 'desserts', 'longDrinks', 'specialLongDrinks', 'internationalLongDrinks', 'whiteWines', 'redWines', 'beers', 'bitterDrinks', 'whiskies', 'softDrinks', 'bottles'));
+        return view('admin.home', compact('products'));
     }
 }

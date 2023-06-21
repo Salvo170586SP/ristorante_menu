@@ -26,7 +26,7 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.products.index') }}">Products</a></div>
-                                {{-- <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span> --}}
+                                <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span>
                             </li>
                           {{--   <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.aperitifs.index') }}">Aperitifs</a></div>
