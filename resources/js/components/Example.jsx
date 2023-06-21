@@ -9,121 +9,114 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Container from '@mui/material/Container';
 import ReactDOM from 'react-dom/client';
 
-const items = [
-    {
-      id: 1,
-      title: 'buttermilk pancakes',
-      category: 'breakfast',
-      price: 15.99,
-      img: './images/item-1.jpeg',
-      desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
-    },
-    {
-      id: 2,
-      title: 'diner double',
-      category: 'lunch',
-      price: 13.99,
-      img: './images/item-2.jpeg',
-      desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
-    },
-    {
-      id: 3,
-      title: 'godzilla milkshake',
-      category: 'shakes',
-      price: 6.99,
-      img: './images/item-3.jpeg',
-      desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
-    },
-    {
-      id: 4,
-      title: 'country delight',
-      category: 'breakfast',
-      price: 20.99,
-      img: './images/item-4.jpeg',
-      desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
-    },
-    {
-      id: 5,
-      title: 'egg attack',
-      category: 'lunch',
-      price: 22.99,
-      img: './images/item-5.jpeg',
-      desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
-    },
-    {
-      id: 6,
-      title: 'oreo dream',
-      category: 'shakes',
-      price: 18.99,
-      img: './images/item-6.jpeg',
-      desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
-    },
-    {
-      id: 7,
-      title: 'bacon overflow',
-      category: 'breakfast',
-      price: 8.99,
-      img: './images/item-7.jpeg',
-      desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
-    },
-    {
-      id: 8,
-      title: 'american classic',
-      category: 'lunch',
-      price: 12.99,
-      img: './images/item-8.jpeg',
-      desc: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
-    },
-    {
-      id: 9,
-      title: 'quarantine buddy',
-      category: 'shakes',
-      price: 16.99,
-      img: './images/item-9.jpeg',
-      desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
-    },
-  ];
-
 function Example() {
+    const [mainMenu, setMainMenu] = React.useState([])
+    const [boolean, setBoolean] = React.useState(true)
+
+    React.useEffect(() => {
+        setBoolean(true)
+        axios({
+            method: "GET",
+            url: "http://www.plantapalermo.it/ristorante_menu2/public/api/categories",
+         }).then(( { data }) => {
+            console.log('data', data);
+            setMainMenu(data);
+         }).catch(err => {
+            console.log(err)
+         });
+         setBoolean(false)
+    }, [])
+    
     return (
         <>
-    <AppBar position="static" sx={{ backgroundColor: 'white !important'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#F7F7F7 !important'}}>
         <Container maxWidth="xl">
-            <Toolbar disableGutters className='flex justify-center'>
-                <img width="300" height="300" src={"https://d1csarkz8obe9u.cloudfront.net/posterpreviews/restaurant-logo-design-template-9c8fdc997056656a46248a9f5735d53f_screen.jpg?ts=1625564746"} alt='logo ristorante'/>
+            <Toolbar disableGutters className='d-flex justify-content-center'>
+                <img width="300" height="300" src={"https://i.ibb.co/RyjmxZn/Immagine-Whats-App-2023-06-21-ore-16-34-50.jpg"} alt='logo ristorante'/>
             </Toolbar>
         </Container>
     </AppBar>
 
+    {boolean ?
+    <div className='d-flex justify-content-center align-items-center'>
+        <div className="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    :
     <div className="section-center pt-4">
-    {items.map((menuItem) => {
-    const { id, title, img, desc, price, category } = menuItem;
+    {mainMenu?.map((menuItem, i) => {
+    const { products } = menuItem;
+
     return (
-        <Accordion key={id}>
+        <Accordion key={menuItem.id} className='pt-2'>
         <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
         >
-            <Typography>{category}</Typography>
+            <Typography className='fs-2'>{menuItem.name_category}</Typography>
         </AccordionSummary>
         <AccordionDetails>
         <article className="menu-item">
+            <div className='d-flex justify-content-between'>
+                <div>Nome</div>
+                <div>Prezzo</div>
+            </div>
             {/* <img src={img} alt={title} className="photo" /> */}
-            <div className="item-info">
-                <header>
-                <h4>{title}</h4>
-                <h4 className="price">${price}</h4>
+            <div className="item-info w-100">
+                <header className='w-100'>
+                    {products?.map((product, i) => {
+                    return(
+                    <>
+                        <div key={i} className='d-flex justify-content-between align-items-center h-100 pt-3'>
+                            <h2 className='fw-bolder fs-2'>{product.name}</h2>
+                            <div>
+                            {!product.price_bottle &&
+                                <h4 className="price">
+                                        €{product.price}
+                                </h4>
+                            }
+                            </div>
+                        </div>
+                        
+                        <p className="pt-2">{product.description}</p>
+                        {product.price_bottle &&
+                            <div className='d-flex justify-content-between align-items-center'>
+                                {product.price_goblet &&
+                                    <h2 className='pt-3'>Prezzo calice: €{product.price_goblet}</h2>
+                                }
+                                <div>
+                                    <h4 className="price">Prezzo bottiglia: €{product.price_bottle}</h4>
+                                </div>
+                            </div>
+                        }
+
+                        {product.quantity_cl &&
+                                <h4 className="price mt-2">
+                                        Quantità: {product.quantity_cl} CL
+                                </h4>
+                        }
+
+                        {product.quantity_lt &&
+                                <h4 className="price mt-2">
+                                        Quantità: {product.quantity_lt} LT
+                                </h4>
+                        }
+                    </>
+                    )
+                    })}
                 </header>
-                <p className="item-text">{desc}</p>
             </div>
             </article>
         </AccordionDetails>
-    </Accordion>
-    
+    </Accordion>    
     );
     })}
     </div>
+    }
+
+    
 </>
     );
 }
