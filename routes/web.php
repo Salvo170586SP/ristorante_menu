@@ -1,19 +1,19 @@
 <?php
 
-use App\Http\Controllers\AperitifController;
+/* use App\Http\Controllers\AperitifController;
 use App\Http\Controllers\BeerController;
 use App\Http\Controllers\BitterDrinkController;
 use App\Http\Controllers\BottleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DessertController;
 use App\Http\Controllers\InternationalLongDrinkController;
-use App\Http\Controllers\LongDrinkController;
+use App\Http\Controllers\LongDrinkController; */
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\RedWineController;
+/* use App\Http\Controllers\RedWineController;
 use App\Http\Controllers\SoftDrinkController;
 use App\Http\Controllers\SpecialLongDrinkController;
 use App\Http\Controllers\WhiskyController;
-use App\Http\Controllers\WhiteWineController;
+use App\Http\Controllers\WhiteWineController; */
 use Illuminate\Support\Facades\Route;
 
 /*
