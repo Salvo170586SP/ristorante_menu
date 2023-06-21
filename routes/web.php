@@ -38,32 +38,32 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     //Products
     Route::resource('/products',  ProductController::class);
     //Categories
-    Route::resource('/categories',  CategoryController::class);
+    // Route::resource('/categories',  CategoryController::class);
 
-    //Aperitis
-    Route::resource('/aperitifs',  AperitifController::class);
-    //Dessert
-    Route::resource('/desserts',  DessertController::class);
-    //LongDrinks
-    Route::resource('/long_drinks',  LongDrinkController::class);
-    //SpecialLongDrinks
-    Route::resource('/special_long_drinks',  SpecialLongDrinkController::class);
-    //InternationaLongDrinks
-    Route::resource('/international_long_drinks',  InternationalLongDrinkController::class);
-    //WhiteWines
-    Route::resource('/white_wines',  WhiteWineController::class);
-    //RedWines
-    Route::resource('/red_wines',  RedWineController::class);
-    //Beers
-    Route::resource('/beers',  BeerController::class);
-    //Bitter Drinks
-    Route::resource('/bitter_drinks',  BitterDrinkController::class);
-    //Whiskies
-    Route::resource('/whiskies',  WhiskyController::class);
-     //Soft Drinks
-     Route::resource('/soft_drinks',  SoftDrinkController::class);
-     //Bottles
-     Route::resource('/bottles',  BottleController::class);
+    // //Aperitis
+    // Route::resource('/aperitifs',  AperitifController::class);
+    // //Dessert
+    // Route::resource('/desserts',  DessertController::class);
+    // //LongDrinks
+    // Route::resource('/long_drinks',  LongDrinkController::class);
+    // //SpecialLongDrinks
+    // Route::resource('/special_long_drinks',  SpecialLongDrinkController::class);
+    // //InternationaLongDrinks
+    // Route::resource('/international_long_drinks',  InternationalLongDrinkController::class);
+    // //WhiteWines
+    // Route::resource('/white_wines',  WhiteWineController::class);
+    // //RedWines
+    // Route::resource('/red_wines',  RedWineController::class);
+    // //Beers
+    // Route::resource('/beers',  BeerController::class);
+    // //Bitter Drinks
+    // Route::resource('/bitter_drinks',  BitterDrinkController::class);
+    // //Whiskies
+    // Route::resource('/whiskies',  WhiskyController::class);
+    //  //Soft Drinks
+    //  Route::resource('/soft_drinks',  SoftDrinkController::class);
+    //  //Bottles
+    //  Route::resource('/bottles',  BottleController::class);
 });
 
 

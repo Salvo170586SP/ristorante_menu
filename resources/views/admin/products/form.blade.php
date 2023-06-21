@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-name">Nome</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', isset($product) ? $product->name : '') }}" name="name" id="aperitif-name" required>
         @error('name')
@@ -9,8 +9,19 @@
         @enderror
     </div>
 
-    <div class="col-4">
-        <select class="form-select" name="category_id" aria-label="Default select example">
+    <div class="col-md-4 mb-2">
+        <label for="aperitif-name">Produttore</label>
+        <input type="text" class="form-control @error('manufacturer') is-invalid @enderror" value="{{ old('name', isset($product) ? $product->manufacturer : '') }}" name="manufacturer" id="aperitif-name">
+        @error('manufacturer')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+
+    <div class="col-md-4 mb-2">
+        <label>Categoria</label>
+        <select class="form-select" name="category_id" >
             <option value="" selected>Seleziona una categoria</option>
             @foreach ($categories as $category)
             <option @if (isset($product)) value="{{ old('category_id', $category->id) }}" @selected($product->category_id == $category->id)
@@ -24,44 +35,35 @@
         </div>
         @enderror
     </div>
-    <div class="col-4">
-        <label for="aperitif-name">Produttore</label>
-        <input type="text" class="form-control @error('manufacturer') is-invalid @enderror" value="{{ old('name', isset($product) ? $product->manufacturer : '') }}" name="manufacturer" id="aperitif-name" required>
-        @error('manufacturer')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
 
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-price">Prezzo</label>
-        <input type="text" placeholder="0.00€" class="form-control @error('price') is-invalid @enderror" value="{{ old('price', isset($product) ? number_format($product->price, 2, '.', ',') : '') }}" id="aperitif-price" name="price">
+        <input type="text" placeholder="0.00€" class="form-control @error('price') is-invalid @enderror" value="{{ old('price', isset($product) ? $product->price : '') }}" id="aperitif-price" name="price">
         @error('price')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
         @enderror
     </div>
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-price">Prezzo Bottiglia</label>
-        <input type="text" placeholder="0.00€" class="form-control @error('price_bottle') is-invalid @enderror" value="{{ old('price', isset($product) ? number_format($product->price_bottle, 2, '.', ',') : '') }}" id="aperitif-price" name="price_bottle">
+        <input type="text" placeholder="0.00€" class="form-control @error('price_bottle') is-invalid @enderror" value="{{ old('price_bottle', isset($product) ? $product->price_bottle : '') }}" id="aperitif-price" name="price_bottle">
         @error('price_bottle')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
         @enderror
     </div>
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-price">Prezzo Calice</label>
-        <input type="text" placeholder="0.00€" class="form-control @error('price_goblet') is-invalid @enderror" value="{{ old('price', isset($product) ? number_format($product->price_goblet, 2, '.', ',') : '') }}" id="aperitif-price" name="price_goblet">
+        <input type="text" placeholder="0.00€" class="form-control @error('price_goblet') is-invalid @enderror" value="{{ old('price_goblet', isset($product) ? $product->price_goblet : '') }}" id="aperitif-price" name="price_goblet">
         @error('price_goblet')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
         @enderror
     </div>
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-price">Quantità cl</label>
         <input type="text" class="form-control @error('quantity_cl') is-invalid @enderror" value="{{ old('quantity_cl', isset($product) ? $product->quantity_cl : '') }}" id="aperitif-price" name="quantity_cl">
         @error('quantity_cl')
@@ -70,9 +72,9 @@
         </div>
         @enderror
     </div>
-    <div class="col-4">
+    <div class="col-md-4 mb-2">
         <label for="aperitif-price">Quantità lt</label>
-        <input type="text" class="form-control @error('quantity_lt') is-invalid @enderror" value="{{ old('price', isset($product) ? $product->quantity_lt : '') }}" id="aperitif-price" name="quantity_lt">
+        <input type="text" class="form-control @error('quantity_lt') is-invalid @enderror" value="{{ old('quantity_lt', isset($product) ? $product->quantity_lt : '') }}" id="aperitif-price" name="quantity_lt">
         @error('quantity_lt')
         <div class="invalid-feedback">
             {{ $message }}
