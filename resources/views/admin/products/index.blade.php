@@ -66,7 +66,6 @@
             <table class="table shadow">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nome</th>
                         <th>Produttore</th>
                         <th>Descrizione</th>
@@ -82,7 +81,6 @@
                 <tbody>
                     @forelse($products as $product)
                     <tr>
-                        <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td>@if($product->description) {{ $product->description }} @else -- @endif</td>
                         <td>{{ $product->manufacturer }}</td>
