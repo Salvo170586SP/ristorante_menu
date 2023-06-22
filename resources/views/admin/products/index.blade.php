@@ -12,7 +12,7 @@
         </div>
         @include('includes.alert')
         {{-- MOBILE --}}
-        <div class="col-sm d-sm-block d-md-none">{{ $products->links() }}</div>
+        <div class="col-sm d-sm-block d-md-none">{{ $products->onEachSide(1)->links() }}</div>
         @foreach($products as $product)
         <div class="col-sm d-sm-block d-md-none my-2">
             <div class="card">
