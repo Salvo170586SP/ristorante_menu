@@ -19,7 +19,6 @@ function Example() {
             method: "GET",
             url: "http://www.plantapalermo.it/ristorante_menu2/public/api/categories",
          }).then(( { data }) => {
-            console.log('data', data);
             setMainMenu(data);
          }).catch(err => {
             console.log(err)
@@ -29,10 +28,10 @@ function Example() {
     
     return (
         <>
-    <AppBar position="static" sx={{ backgroundColor: '#F7F7F7 !important'}}>
+    <AppBar position="static" sx={{ backgroundColor: 'white !important'}}>
         <Container maxWidth="xl">
             <Toolbar disableGutters className='d-flex justify-content-center'>
-                <img width="300" height="300" src={"https://i.ibb.co/RyjmxZn/Immagine-Whats-App-2023-06-21-ore-16-34-50.jpg"} alt='logo ristorante'/>
+                <img width="300" height="300" src={"http://www.plantapalermo.it/immagini/logo.png"} alt='logo ristorante'/>
             </Toolbar>
         </Container>
     </AppBar>
@@ -40,7 +39,7 @@ function Example() {
     {boolean ?
     <div className='d-flex justify-content-center align-items-center'>
         <div className="spinner-border text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
         </div>
     </div>
     :
@@ -55,7 +54,7 @@ function Example() {
             aria-controls="panel1a-content"
             id="panel1a-header"
         >
-            <Typography className='fs-2'>{menuItem.name_category}</Typography>
+            <Typography className='fs-3'>{menuItem.name_category}</Typography>
         </AccordionSummary>
         <AccordionDetails>
         <article className="menu-item">
@@ -69,8 +68,8 @@ function Example() {
                     {products?.map((product, i) => {
                     return(
                     <>
-                        <div key={i} className='d-flex justify-content-between align-items-center h-100 pt-3'>
-                            <h2 className='fw-bolder fs-2'>{product.name}</h2>
+                        <div key={i + 1} className='d-flex justify-content-between align-items-center h-100 pt-3'>
+                            <h2 className='fw-bold fs-5'>{product.name}</h2>
                             <div>
                             {!product.price_bottle &&
                                 <h4 className="price">
