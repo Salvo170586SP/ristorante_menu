@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Container from '@mui/material/Container';
 import ReactDOM from 'react-dom/client';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 function Example() {
     const [mainMenu, setMainMenu] = React.useState([])
@@ -17,7 +19,7 @@ function Example() {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://www.plantapalermo.it/ristorante_menu2/public/api/categories",
+            url: "http://www.plantapalermo.it/menu2/public/api/categories",
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
@@ -28,7 +30,7 @@ function Example() {
     
     return (
         <>
-    <AppBar position="static" sx={{ backgroundColor: 'white !important'}}>
+    <AppBar position="static" sx={{ backgroundColor: 'black !important'}}>
         <Container maxWidth="xl">
             <Toolbar disableGutters className='d-flex justify-content-center'>
                 <img width="300" height="300" src={"http://www.plantapalermo.it/immagini/logo.png"} alt='logo ristorante'/>
@@ -48,7 +50,7 @@ function Example() {
     const { products } = menuItem;
 
     return (
-        <Accordion key={menuItem.id} className='pt-2'>
+        <Accordion key={menuItem.id} className='pt-2' sx={{ backgroundColor: '#C5E0B4'}}>
         <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -109,9 +111,18 @@ function Example() {
             </div>
             </article>
         </AccordionDetails>
-    </Accordion>    
+        </Accordion>  
     );
     })}
+
+        <div className='d-flex justify-content-around pt-3 pb-3'>
+            <a href='https://www.instagram.com/plantapalermo/' target='_black' >
+                <InstagramIcon sx={{ color: '#C5E0B4 !important'}} fontSize='large'/>
+            </a>
+            <a href='https://www.facebook.com/plantapalermo' target='_black' >
+                <FacebookIcon sx={{ color: '#C5E0B4 !important'}} fontSize='large'/>
+            </a>
+        </div>
     </div>
     }
 
