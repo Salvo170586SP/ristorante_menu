@@ -52,7 +52,9 @@ class ProductController extends Controller
         try {
             $product = new Product();
             $product->name = $request->name;
+            $product->name_eng = $request->name_eng;
             $product->description = $request->description;
+            $product->description_eng = $request->description_eng;
             $product->manufacturer = $request->manufacturer;
             $product->price = $request->price;
             $product->price_goblet = $request->price_goblet;
@@ -111,7 +113,9 @@ class ProductController extends Controller
 
             $product->update([
                 'name' => $request->name,
+                'name_eng' => $request->name_eng,
                 'description' => $request->description,
+                'description_eng' => $request->description_eng,
                 'manufacturer' => $request->manufacturer,
                 'price' => $request->price,
                 'price_goblet' => $request->price_goblet,

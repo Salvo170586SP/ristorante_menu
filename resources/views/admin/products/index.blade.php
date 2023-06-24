@@ -18,6 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title mb-3">Nome: {{ $product->name }}</h5>
+                    <h5 class="card-title mb-3">Nome inglese: @if($product->name_eng ) {{ $product->name_eng }} @else -- @endif</h5>
                     <p>Produttore: @if($product->manufacturer) {{ $product->manufacturer }} @else -- @endif</p>
                     <p class="card-text">Prezzo: @if($product->price) €{{ number_format($product->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p>Prezzo Calice: @if($product->price_goblet ) {{ $product->price_goblet }} @else -- @endif</p>
@@ -26,6 +27,7 @@
                     <p>Quantità lt: @if($product->quantity_lt) {{ $product->quantity_lt }} @else -- @endif</p>
                     <p>Categoria: @if($product->category) {{ $product->category->name_category }} @else -- @endif </p>
                     <p class="card-text">Descrizione: @if($product->description) {{ $product->description }} @else -- @endif</p>
+                    <p class="card-text">Descrizione Inglese: @if($product->description_eng) {{ $product->description_eng }} @else -- @endif</p>
                     <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary">Vedi</a>
                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $product->id }}">
@@ -66,8 +68,10 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Nome Ing</th>
                         <th>Produttore</th>
                         <th>Descrizione</th>
+                        <th>Descrizione ing</th>
                         <th>Prezzo</th>
                         <th>Prezzo Calice</th>
                         <th>Prezzo Bottiglia</th>
@@ -81,8 +85,10 @@
                     @forelse($products as $product)
                     <tr>
                         <td>{{ $product->name }}</td>
+                        <td>@if($product->name_eng){{ $product->name_eng }}@else -- @endif</td>
+                        <td>@if($product->manufacturer) {{ $product->manufacturer }} @else -- @endif</td>
                         <td>@if($product->description) {{ $product->description }} @else -- @endif</td>
-                        <td>{{ $product->manufacturer }}</td>
+                        <td>@if($product->description_eng) {{ $product->description_eng }} @else -- @endif</td>
                         <td>@if($product->price) €{{ number_format($product->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($product->price_goblet) €{{ number_format($product->price_goblet, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($product->price_bottle) €{{ number_format($product->price_bottle, 2, '.', ',')  }} @else -- @endif</td>

@@ -8,6 +8,15 @@
         </div>
         @enderror
     </div>
+    <div class="col-md-4 mb-2">
+        <label for="aperitif-name">Nome Inglese</label>
+        <input type="text" class="form-control @error('name_eng') is-invalid @enderror" value="{{ old('name_eng', isset($product) ? $product->name_eng : '') }}" name="name_eng" id="aperitif-name">
+        @error('name_eng')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
 
     <div class="col-md-4 mb-2">
         <label for="aperitif-name">Produttore</label>
@@ -21,7 +30,7 @@
 
     <div class="col-md-4 mb-2">
         <label>Categoria</label>
-        <select class="form-select" name="category_id" >
+        <select class="form-select" name="category_id">
             <option value="" selected>Seleziona una categoria</option>
             @foreach ($categories as $category)
             <option @if (isset($product)) value="{{ old('category_id', $category->id) }}" @selected($product->category_id == $category->id)
@@ -86,6 +95,15 @@
         <label for="aperitif-description">Descrizione</label>
         <textarea name="description" class="form-control mb-5 @error('description') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description', isset($product) ?  $product->description : '') }}</textarea>
         @error('description')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+    <div class="col-12 mt-3">
+        <label for="aperitif-description">Descrizione Inglese</label>
+        <textarea name="description_eng" class="form-control mb-5 @error('description_eng') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description_eng', isset($product) ?  $product->description_eng : '') }}</textarea>
+        @error('description_eng')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
