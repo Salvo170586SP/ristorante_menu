@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <h1>Lista Products</h1>
+            <h1>Lista Prodotti</h1>
             <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2 ">Torna alla dashboard</a>
         </div>
         <div class="col-12 col-sm d-sm-block d-md-none mt-4">
@@ -20,7 +20,7 @@
                     <h5 class="card-title mb-3">Nome: {{ $product->name }}</h5>
                     <p>Produttore: @if($product->manufacturer) {{ $product->manufacturer }} @else -- @endif</p>
                     <p class="card-text">Prezzo: @if($product->price) €{{ number_format($product->price, 2, '.', ',')  }} @else -- @endif</p>
-                    <p>Prezzo Calice:  @if($product->price_goblet ) {{ $product->price_goblet }} @else -- @endif</p>
+                    <p>Prezzo Calice: @if($product->price_goblet ) {{ $product->price_goblet }} @else -- @endif</p>
                     <p>Prezzo Bottiglia: @if($product->price_bottle) {{ $product->price_bottle }} @else -- @endif</p>
                     <p>Quantità cl: @if($product->quantity_cl) {{ $product->quantity_cl }} @else -- @endif</p>
                     <p>Quantità lt: @if($product->quantity_lt) {{ $product->quantity_lt }} @else -- @endif</p>
@@ -60,9 +60,8 @@
         @endforeach
 
         {{-- FULL SCREEN --}}
-        <div class="d-none col-md-12 d-md-block mt-5">
+        <div class="col-12 d-none col-md-12 d-md-block mt-5">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary shadow mb-3 px-5 py-2">Crea</a>
-            {{-- <h6>Totale dei prodotti in tabella: {{ count($products) }}</h6> --}}
             <table class="table shadow">
                 <thead>
                     <tr>
@@ -133,7 +132,7 @@
                     @endforelse
                 </tbody>
             </table>
-            <div>{{ $products->links() }}</div>
+            {{ $products->links() }}
         </div>
     </div>
 </div>

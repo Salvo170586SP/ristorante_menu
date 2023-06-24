@@ -19,7 +19,7 @@
 
                         <h5 class="mb-3">Le tue liste</h5>
 
-                        <ol class="list-group d-flex justifu">
+                        <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="fw-bold">LISTA</div>
                                 <span>Elementi in lista</span>
@@ -28,7 +28,7 @@
                                 <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.products.index') }}">Products</a></div>
                                 <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span>
                             </li>
-                        </ol>
+                        </ul>
                     </div>
                 </div>
             </div>
