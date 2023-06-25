@@ -13,6 +13,7 @@
                 @csrf
                 @method('put')
                 @include('admin.products.form')
+                <p>* i campi sono obbligatori</p>
                 <button type="submit" class="btn btn-primary shadow">Modifica</button>
             </form>
         </div>

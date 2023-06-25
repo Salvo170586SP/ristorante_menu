@@ -12,6 +12,8 @@
             <form action="{{ route('admin.products.store') }}" method="post" class="mt-5">
                 @csrf
                 @include('admin.products.form')
+                <p>* i campi sono obbligatori</p>
+
                 <button class="btn btn-primary shadow">Crea</button>
             </form>
 

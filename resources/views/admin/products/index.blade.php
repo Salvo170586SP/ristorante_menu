@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12 d-flex justify-content-between align-items-center">
+        <div class="col-12 px-5 d-flex justify-content-between align-items-center">
             <h1>Lista Prodotti</h1>
             <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2 ">Torna alla dashboard</a>
         </div>
-        <div class="col-12 col-sm d-sm-block d-md-none mt-4">
+        <div class="col-12 px-5 col-sm d-sm-block d-md-none mt-4">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary px-5 py-2 shadow mb-3 my-3 ">Crea</a>
         </div>
         @include('includes.alert')
         {{-- MOBILE --}}
-        <div class="col-sm d-sm-block d-md-none">{{ $products->onEachSide(1)->links() }}</div>
+        <div class="col-sm px-5 d-sm-block d-md-none">{{ $products->onEachSide(1)->links() }}</div>
         @foreach($products as $product)
-        <div class="col-sm d-sm-block d-md-none my-2">
+        <div class="col-sm d-sm-block px-5 d-md-none my-2">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title mb-3">Nome: {{ $product->name }}</h5>
@@ -25,9 +25,10 @@
                     <p>Prezzo Bottiglia: @if($product->price_bottle) {{ $product->price_bottle }} @else -- @endif</p>
                     <p>Quantità cl: @if($product->quantity_cl) {{ $product->quantity_cl }} @else -- @endif</p>
                     <p>Quantità lt: @if($product->quantity_lt) {{ $product->quantity_lt }} @else -- @endif</p>
-                    <p>Categoria: @if($product->category) {{ $product->category->name_category }} @else -- @endif </p>
-                    <p class="card-text">Descrizione: @if($product->description) {{ $product->description }} @else -- @endif</p>
-                    <p class="card-text">Descrizione Inglese: @if($product->description_eng) {{ $product->description_eng }} @else -- @endif</p>
+                    <p>Categoria: @if($product->category) <span class="badge text-bg-secondary"> {{ $product->category->name_category }}</span>
+                        @else -- @endif </p>
+                    <p class="card-text">Descrizione: @if($product->description) {{ substr($product->description, 0, 15) }}... @else -- @endif</p>
+                    <p class="card-text">Descrizione Inglese: @if($product->description_eng) {{ substr($product->description_eng, 0, 15) }}... @else -- @endif</p>
                     <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary">Vedi</a>
                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $product->id }}">
@@ -62,7 +63,7 @@
         @endforeach
 
         {{-- FULL SCREEN --}}
-        <div class="col-12 d-none col-md-12 d-md-block mt-5">
+        <div class="col-12  d-none col-md-12 d-md-block mt-5 px-5">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary shadow mb-3 px-5 py-2">Crea</a>
             <table class="table shadow">
                 <thead>
@@ -87,15 +88,15 @@
                         <td>{{ $product->name }}</td>
                         <td>@if($product->name_eng){{ $product->name_eng }}@else -- @endif</td>
                         <td>@if($product->manufacturer) {{ $product->manufacturer }} @else -- @endif</td>
-                        <td>@if($product->description) {{ $product->description }} @else -- @endif</td>
-                        <td>@if($product->description_eng) {{ $product->description_eng }} @else -- @endif</td>
+                        <td>@if($product->description) {{ substr($product->description, 0, 15) }}... @else -- @endif</td>
+                        <td>@if($product->description_eng) {{ substr($product->description_eng, 0, 15)}}... @else -- @endif</td>
                         <td>@if($product->price) €{{ number_format($product->price, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($product->price_goblet) €{{ number_format($product->price_goblet, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($product->price_bottle) €{{ number_format($product->price_bottle, 2, '.', ',')  }} @else -- @endif</td>
                         <td>@if($product->quantity_cl) {{ $product->quantity_cl}}cl @else -- @endif</td>
                         <td>@if($product->quantity_lt) {{$product->quantity_lt }}lt @else -- @endif</td>
                         <td>
-                            @if($product->category) {{$product->category->name_category }} @else -- @endif
+                            @if($product->category) <span class="badge text-bg-secondary">{{$product->category->name_category }}</span> @else -- @endif
                         </td>
                         <td>
                             <div class="d-flex justify-content-center align-items-center">

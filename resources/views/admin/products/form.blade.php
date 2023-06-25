@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4 mb-2">
-        <label for="aperitif-name">Nome</label>
+        <label for="aperitif-name">Nome(*)</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', isset($product) ? $product->name : '') }}" name="name" id="aperitif-name" required>
         @error('name')
         <div class="invalid-feedback">
@@ -91,7 +91,7 @@
         @enderror
     </div>
 
-    <div class="col-12 mt-3">
+    <div class="col-6 mt-3">
         <label for="aperitif-description">Descrizione</label>
         <textarea name="description" class="form-control mb-5 @error('description') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description', isset($product) ?  $product->description : '') }}</textarea>
         @error('description')
@@ -100,7 +100,7 @@
         </div>
         @enderror
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-6 mt-3">
         <label for="aperitif-description">Descrizione Inglese</label>
         <textarea name="description_eng" class="form-control mb-5 @error('description_eng') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description_eng', isset($product) ?  $product->description_eng : '') }}</textarea>
         @error('description_eng')
