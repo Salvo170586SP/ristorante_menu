@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::with('category')->get();
-
-        return response()->json(['menu' => $products]);
+    
     }
 
     /**
@@ -31,10 +30,11 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
-        if(!$product) return response('Product Not Found', 404);
+        $user = User::find($id);
 
-        return response()->json($product);
+        $user_products = Category::where('user_id', $user->id)->with('products')->get();
+        if(!$user_products) return response('Product Not Found', 404);
+        return response()->json($user_products);
     }
 
     /**

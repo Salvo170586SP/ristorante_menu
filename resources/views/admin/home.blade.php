@@ -18,6 +18,7 @@
                         <h1 class="mb-3">Benvenuto {{ucfirst(Auth::user()->name)}}</h1>
 
                         <h5 class="mb-3">Le tue liste</h5>
+                        <h6>*Crea prima le tue categorie se vuoi associarle ai tuoi prodotti</h6>
 
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -25,7 +26,11 @@
                                 <span>Elementi in lista</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.products.index') }}">Products</a></div>
+                                <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.categories.index') }}">Categorie</a></div>
+                                <span class="badge bg-secondary rounded-pill">{{ count($categories) }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.products.index') }}">Prodotti</a></div>
                                 <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span>
                             </li>
                         </ul>
