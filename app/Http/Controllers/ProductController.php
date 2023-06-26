@@ -15,7 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(8);
+        $userId = Auth::id();
+        $products = Product::whereHas('category', function ($query) use ($userId) {
+            $query->whereHas('user', function ($query) use ($userId) {
+                $query->where('id', $userId);
+            });
+        })->orWhereDoesntHave('category')->paginate(8);
         return view('admin.products.index', compact('products'));
     }
 
@@ -24,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id', Auth::id())->get();
         return view('admin.products.create', compact('categories'));
     }
 
@@ -84,8 +89,13 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::all();
-        return view('admin.products.edit', compact('product', 'categories'));
+
+        if (Auth::id() !== optional($product->category)->user_id || Auth::id() == $product->category->user_id) {
+            $categories = Category::where('user_id', Auth::id())->get();
+            return view('admin.products.edit', compact('product', 'categories'));
+        } else {
+            return abort(403, 'non sei autorizzato');
+        }
     }
 
     /**

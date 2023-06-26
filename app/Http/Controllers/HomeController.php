@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,9 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-    
-        $categories = Category::all();
-        $products = Product::all();
+        $userId = Auth::id();
+        $products = Product::whereHas('category', function ($query) use ($userId) {
+            $query->whereHas('user', function ($query) use ($userId) {
+                $query->where('id', $userId);
+            });
+        })->orWhereDoesntHave('category')->get();
+       
+        $categories = Category::where('user_id', Auth::id())->get();
 
         return view('admin.home', compact('products','categories'));
     }
