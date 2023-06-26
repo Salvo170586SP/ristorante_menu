@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(8);
+        $categories = Category::where('user_id', Auth::id())->paginate(8);
 
         return view('admin.categories.index', compact('categories'));
     }
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-         return view('admin.categories.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -32,7 +32,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'name_category' => 'required|string',
         ], [
             'name_category.required' => 'Il nome è richiesto',
@@ -64,7 +64,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-       return view('admin.categories.edit', compact('category'));
+        if (Auth::id() == $category->user_id) {
+            return view('admin.categories.edit', compact('category'));
+        } else {
+            return abort(403, 'non sei autorizzato');
+        }
     }
 
     /**
@@ -72,7 +76,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-         $request->validate([
+        $request->validate([
             'name_category' => 'required|string'
         ], [
             'name_category.required' => 'Il nome è richiesto'
@@ -96,7 +100,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-         $category->delete();
+        $category->delete();
 
         return back()->with('message', "$category->name eliminato con successo");
     }
