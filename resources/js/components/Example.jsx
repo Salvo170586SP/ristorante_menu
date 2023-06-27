@@ -21,7 +21,7 @@ function Example() {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://localhost:8000/api/user_products/1",
+            url: "http://plantapalermo.it/menu_2/public/api/user_products/1",
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
