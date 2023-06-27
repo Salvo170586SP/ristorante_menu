@@ -12,6 +12,13 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title mb-3">Nome: {{ $product->name }}</h5>
+                    <h5 class="card-title mb-3">Nome in inglese: 
+                        @if ($product->name_eng) 
+                            {{ $product->name_eng }}
+                        @else 
+                        --
+                        @endif 
+                    </h5>
                     <p>Produttore: @if($product->manufacturer) {{ $product->manufacturer }} @else -- @endif</p>
                     <p class="card-text">Prezzo: @if($product->price) €{{ number_format($product->price, 2, '.', ',')  }} @else -- @endif</p>
                     <p>Prezzo Calice:  @if($product->price_goblet ) {{ $product->price_goblet }} @else -- @endif</p>
@@ -20,6 +27,7 @@
                     <p>Quantità lt: @if($product->quantity_lt) {{ $product->quantity_lt }} @else -- @endif</p>
                     <p>Categoria: @if($product->category) {{ $product->category->name_category }} @else -- @endif </p>
                     <p class="card-text">Descrizione: @if($product->description) {{ $product->description }} @else -- @endif</p>
+                    <p class="card-text">Descrizione in inglese: @if($product->description_eng) {{ $product->description_eng }} @else -- @endif</p>
                 </div>
             </div>
         </div>
