@@ -93,7 +93,7 @@
     </div>
    
 
-    <div class="col-6 mt-3">
+    <div class="col-12 col-md-6 mt-3">
         <label for="aperitif-description">Descrizione</label>
         <textarea name="description" class="form-control mb-5 @error('description') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description', isset($product) ?  $product->description : '') }}</textarea>
         @error('description')
@@ -102,7 +102,7 @@
         </div>
         @enderror
     </div>
-    <div class="col-6 mt-3">
+    <div class="col-12 col-md-6 mt-3">
         <label for="aperitif-description">Descrizione Inglese</label>
         <textarea name="description_eng" class="form-control mb-5 @error('description_eng') is-invalid @enderror" id="aperitif-description" cols="30" rows="5">{{ old('description_eng', isset($product) ?  $product->description_eng : '') }}</textarea>
         @error('description_eng')
