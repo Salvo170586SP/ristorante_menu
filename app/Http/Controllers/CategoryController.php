@@ -41,6 +41,7 @@ class CategoryController extends Controller
         try {
             $category = new Category();
             $category->name_category = $request->name_category;
+            $category->name_category_eng = $request->name_category_eng;
             $category->user_id = Auth::id();
             $category->save();
 
@@ -86,6 +87,7 @@ class CategoryController extends Controller
 
             $category->update([
                 'name_category' => $request->name_category,
+                'name_category_eng' => $request->name_category_eng,
             ]);
 
             return redirect()->route('admin.categories.index')->with('message', "$category->name modificato con successo");

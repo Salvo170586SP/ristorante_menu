@@ -18,6 +18,12 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title mb-3">Nome Categoria: {{ $cat->name_category }}</h5>
+                    <h5 class="card-title mb-3">Nome Categoria Inglese: 
+                        @if ($cat->name_category_eng)
+                        {{ $cat->name_category_eng }}
+                        @else
+                        @endif
+                    </h5>
                     <a href="{{ route('admin.categories.edit', $cat->id) }}" class="btn btn-secondary mx-2">Modifica</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalMobile-{{ $cat->id }}">
                         Elimina
@@ -57,6 +63,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Nome Inglese</th>
                         <th class="text-end">Azioni</th>
                     </tr>
                 </thead>
@@ -64,6 +71,12 @@
                     @forelse($categories as $cat)
                     <tr>
                         <td>{{ $cat->name_category }}</td>
+                        <td>
+                            @if ($cat->name_category_eng)
+                            {{ $cat->name_category_eng }}
+                            @else 
+                            @endif
+                        </td>
                         <td>
                             <div class="d-flex justify-content-end align-items-center">
                                 <a href="{{ route('admin.categories.edit', $cat->id) }}" class="btn btn-secondary  mx-2">Modifica</a>

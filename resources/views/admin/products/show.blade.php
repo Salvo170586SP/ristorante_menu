@@ -26,6 +26,7 @@
                     <p>Quantità cl: @if($product->quantity_cl) {{ $product->quantity_cl }} @else -- @endif</p>
                     <p>Quantità lt: @if($product->quantity_lt) {{ $product->quantity_lt }} @else -- @endif</p>
                     <p>Categoria: @if($product->category) {{ $product->category->name_category }} @else -- @endif </p>
+                    <p>Categoria in inglese: @if($product->category->name_category_eng) {{ $product->category->name_category_eng }} @else -- @endif </p>
                     <p class="card-text">Descrizione: @if($product->description) {{ $product->description }} @else -- @endif</p>
                     <p class="card-text">Descrizione in inglese: @if($product->description_eng) {{ $product->description_eng }} @else -- @endif</p>
                 </div>

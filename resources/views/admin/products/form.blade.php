@@ -16,6 +16,23 @@
         </div>
         @enderror
     </div>
+
+    {{-- <div class="col-md-4 mb-2">
+        <label>Categoria in inglese</label>
+        <select class="form-select" name="category_id">
+            <option value="" selected>Seleziona una categoria</option>
+            @foreach ($categories as $category)
+            <option @if (isset($product)) value="{{ old('category_id', $category->id) }}" @selected($product->category_id == $category->id)
+                @else
+                value="{{ $category->id }}" @endif >{{ $category->name_category_eng }}</option>
+            @endforeach
+        </select>
+        @error('category_id')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div> --}}
     <div class="col-md-4 mb-2">
         <label for="aperitif-name">Nome(*)</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', isset($product) ? $product->name : '') }}" name="name" id="aperitif-name" required>

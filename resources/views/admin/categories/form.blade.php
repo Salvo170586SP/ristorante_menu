@@ -8,4 +8,13 @@
         </div>
         @enderror
     </div>
+    <div class="col-md-4 mb-2">
+        <label for="category-name">Nome Categoria Inglese</label>
+        <input type="text" class="form-control @error('name_category_eng') is-invalid @enderror" value="{{ old('name_category_eng', isset($category) ? $category->name_category_eng : '') }}" name="name_category_eng" id="category-name">
+        @error('name_category_eng')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
 </div>

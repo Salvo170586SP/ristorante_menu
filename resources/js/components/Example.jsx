@@ -14,12 +14,14 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 function Example() {
     const [mainMenu, setMainMenu] = React.useState([])
     const [boolean, setBoolean] = React.useState(true)
+    const [booleanFlag, setBooleanFlag] = React.useState(true)
+
 
     React.useEffect(() => {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://www.plantapalermo.it/menu2/public/api/categories",
+            url: "http://localhost:8000/api/user_products/1",
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
@@ -35,6 +37,13 @@ function Example() {
             <Toolbar disableGutters className='d-flex justify-content-center'>
                 <img width="300" height="300" src={"http://www.plantapalermo.it/immagini/logo.png"} alt='logo ristorante'/>
             </Toolbar>
+            <div className='d-flex justify-content-center'>
+                {booleanFlag ?
+                <img width="100" height="100" src={"http://www.plantapalermo.it/immagini/italy.png"} alt='bandiera italiana' onClick={() => setBooleanFlag(false)}/>
+                :
+                <img width="100" height="150" src={"http://www.plantapalermo.it/immagini/england.png"} alt='bandiera inglese' onClick={() => setBooleanFlag(true)}/>
+            }
+            </div>
         </Container>
     </AppBar>
 
@@ -56,22 +65,49 @@ function Example() {
             aria-controls="panel1a-content"
             id="panel1a-header"
         >
+            {booleanFlag ?
             <Typography className='fs-3'>{menuItem.name_category}</Typography>
+            :
+            
+            <Typography className='fs-3'>
+                {menuItem.name_category_eng !== null ?
+                menuItem.name_category_eng :
+                menuItem.name_category
+                }
+            </Typography>
+        }
         </AccordionSummary>
         <AccordionDetails>
         <article className="menu-item">
             <div className='d-flex justify-content-between'>
-                <div>Nome</div>
-                <div>Prezzo</div>
+                {booleanFlag ? 
+                <>
+                    <div>Nome</div>
+                    <div>Prezzo</div>
+                </>
+                :
+                <>
+                    <div>Name</div>
+                    <div>Price</div>
+                </>
+                }
             </div>
             {/* <img src={img} alt={title} className="photo" /> */}
             <div className="item-info w-100">
                 <header className='w-100'>
                     {products?.map((product, i) => {
                     return(
-                    <>
-                        <div key={i + 1} className='d-flex justify-content-between align-items-center h-100 pt-3'>
+                    <div key={i + 1}>
+                        <div className='d-flex justify-content-between align-items-center h-100 pt-3'>
+                            {booleanFlag ?
                             <h2 className='fw-bold fs-5'>{product.name}</h2>
+                            :
+                            <h2 className='fw-bold fs-5'>{
+                                product.name_eng !== null ?
+                                product.name_eng :
+                                product.name
+                                }</h2>
+                            }
                             <div>
                             {!product.price_bottle &&
                                 <h4 className="price">
@@ -104,7 +140,7 @@ function Example() {
                                         Quantità: {product.quantity_lt} LT
                                 </h4>
                         }
-                    </>
+                    </div>
                     )
                     })}
                 </header>
