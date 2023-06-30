@@ -34,6 +34,15 @@
                                 <span class="badge bg-secondary rounded-pill">{{ count($products) }}</span>
                             </li>
                         </ul>
+
+                        <ul class="list-group mt-2">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="fw-bold">Modifica la tua home</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="fw-bold"> <a class="btn btn-secondary" href="{{ route('admin.styles.index') }}">Le tue impostazioni</a></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
