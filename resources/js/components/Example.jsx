@@ -22,6 +22,7 @@ function Example() {
         axios({
             method: "GET",
             url: "http://www.plantapalermo.it/menuplanta/public/api/user_products/1",
+            
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
