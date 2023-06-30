@@ -21,7 +21,7 @@ function Example() {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://www.plantapalermo.it/menu_planta1/public/api/user_products/1",
+            url: "http://www.plantapalermo.it/menu_planta/public/api/user_products/1",
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
@@ -152,10 +152,10 @@ function Example() {
     })}
 
         <div className='d-flex justify-content-around pt-3 pb-3'>
-            <a href='https://www.instagram.com/plantapalermo/' target='_black' >
+            <a href='https://www.instagram.com/plantapalermo/' target='_blank' >
                 <InstagramIcon sx={{ color: '#C5E0B4 !important'}} fontSize='large'/>
             </a>
-            <a href='https://www.facebook.com/plantapalermo' target='_black' >
+            <a href='https://www.facebook.com/plantapalermo' target='_blank' >
                 <FacebookIcon sx={{ color: '#C5E0B4 !important'}} fontSize='large'/>
             </a>
         </div>
