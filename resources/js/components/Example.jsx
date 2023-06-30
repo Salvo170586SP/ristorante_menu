@@ -21,7 +21,7 @@ function Example() {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://plantapalermo.it/menu_2/public/api/user_products/1",
+            url: "http://www.plantapalermo.it/menu_3/public/api/user_products/1",
          }).then(( { data }) => {
             setMainMenu(data);
          }).catch(err => {
@@ -56,20 +56,20 @@ function Example() {
     :
     <div className="section-center pt-4">
     {mainMenu?.map((menuItem, i) => {
-    const { products } = menuItem;
+    const { products, user } = menuItem;
 
     return (
-        <Accordion key={menuItem.id} className='pt-2' sx={{ backgroundColor: '#C5E0B4'}}>
+        <Accordion key={menuItem.id} className='pt-2' sx={{ backgroundColor: `${user.style.color_accordion} !important`, color: `${user.style.color_item} !important`}}>
         <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
         >
             {booleanFlag ?
-            <Typography className='fs-3'>{menuItem.name_category}</Typography>
+            <Typography sx={{ fontSize: `${user.style.font_size_cat}px` }} >{menuItem.name_category}</Typography>
             :
             
-            <Typography className='fs-3'>
+            <Typography sx={{ fontSize: `${user.style.font_size_cat}px` }}  >
                 {menuItem.name_category_eng !== null ?
                 menuItem.name_category_eng :
                 menuItem.name_category
@@ -100,9 +100,9 @@ function Example() {
                     <div key={i + 1}>
                         <div className='d-flex justify-content-between align-items-center h-100 pt-3'>
                             {booleanFlag ?
-                            <h2 className='fw-bold fs-5'>{product.name}</h2>
+                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold fs-5'>{product.name}</h2>
                             :
-                            <h2 className='fw-bold fs-5'>{
+                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold fs-5'>{
                                 product.name_eng !== null ?
                                 product.name_eng :
                                 product.name

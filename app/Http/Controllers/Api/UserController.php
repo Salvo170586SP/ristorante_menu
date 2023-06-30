@@ -32,7 +32,14 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        $user_products = Category::where('user_id', $user->id)->with('products')->get();
+        /* $user_products = Category::where('user_id', $user->id)->with('products')->get(); */
+        $user_products = Category::where('user_id', $user->id)
+        ->with('products')
+        ->with(['user' => function ($query) {
+            $query->with('style'); // Seleziona le colonne desiderate dalla tabella dei colori
+        }])
+        ->get();
+
         if(!$user_products) return response('Product Not Found', 404);
         return response()->json($user_products);
     }

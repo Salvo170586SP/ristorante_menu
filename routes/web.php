@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\StyleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +26,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/categories',  CategoryController::class);
     //Products
     Route::resource('/products',  ProductController::class);
+    //Styles
+    Route::resource('/styles',  StyleController::class);
 
 });
 
