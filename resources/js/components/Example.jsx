@@ -81,7 +81,7 @@ function Example() {
         <AccordionDetails>
         <article className="menu-item">
             <div className='d-flex justify-content-between'>
-                {booleanFlag ? 
+                {/* {booleanFlag ? 
                 <>
                     <div>Nome</div>
                     <div>Prezzo</div>
@@ -91,7 +91,7 @@ function Example() {
                     <div>Name</div>
                     <div>Price</div>
                 </>
-                }
+                } */}
             </div>
             {/* <img src={img} alt={title} className="photo" /> */}
             <div className="item-info w-100">
