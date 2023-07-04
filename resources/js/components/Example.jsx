@@ -101,9 +101,9 @@ function Example() {
                     <div key={i + 1}>
                         <div className='d-flex justify-content-between align-items-center h-100 pt-3'>
                             {booleanFlag ?
-                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold fs-5'>{product.name}</h2>
+                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{product.name}</h2>
                             :
-                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold fs-5'>{
+                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{
                                 product.name_eng !== null ?
                                 product.name_eng :
                                 product.name
