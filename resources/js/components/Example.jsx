@@ -118,7 +118,7 @@ function Example() {
                             </div>
                         </div>
                         
-                        <p className="pt-2">{product.description}</p>
+                        <p style={{ fontSize: `${user.style.font_size}px` }} className="pt-2">{product.description}</p>
                         {product.price_bottle &&
                             <div className='d-flex justify-content-between align-items-center'>
                                 {product.price_goblet &&
