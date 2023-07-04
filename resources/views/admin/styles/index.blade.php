@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <h6 class="my-2">Font Size Categoria: {{ $style->font_size_cat }}px</h6>
                     <h6 class="my-2">Font Size Prodotti: {{ $style->font_size }}px</h6>
-                     
+
                     <div class="d-flex justify-content-between align-items-center my-2">
                         <h6>Colore Accordion: </h6>
                         <div class="rounded shadow" style="width: 60px; height: 40px; background-color: {{ $style->color_accordion }}"></div>
@@ -34,6 +34,14 @@
 
         {{-- FULL SCREEN --}}
         <div class="col-12  d-none col-md-12 d-md-block mt-5 px-5">
+
+            @if(count($styles) == null)
+            <div class="d-flex justify-content-center my-3">
+                <h2 class="me-3">Crea la tua impostazione</h2>
+                <a href="{{ route('admin.styles.create') }}" class="btn btn-secondary shadow px-5 py-2 ">Crea</a>
+            </div>
+            @endif
+
             <table class="table shadow">
                 <thead>
                     <tr>

@@ -24,7 +24,7 @@ class StyleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.styles.create');
     }
 
     /**
@@ -32,7 +32,21 @@ class StyleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+
+            $style = new Style();
+            $style->user_id = Auth::id();
+            $style->color_accordion = $request->color_accordion;
+            $style->color_item = $request->color_item;
+            $style->font_size = $request->font_size;
+            $style->font_size_cat = $request->font_size_cat;
+            $style->save();
+
+            return redirect()->route('admin.styles.index');
+        } catch (Exception $e) {
+            return redirect()->route('admin.styles.index')->with('message', 'Errore nella modifica');
+        }
     }
 
     /**
@@ -66,7 +80,7 @@ class StyleController extends Controller
                 'color_item' => $request->color_item,
                 'font_size' => $request->font_size,
                 'font_size_cat' => $request->font_size_cat,
-             ]);
+            ]);
 
             return redirect()->route('admin.styles.index')->with('message', "Modificato con successo");
         } catch (Exception $e) {

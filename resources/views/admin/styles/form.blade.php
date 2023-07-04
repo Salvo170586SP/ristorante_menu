@@ -2,19 +2,19 @@
     <div class="col-12 col-md-6 mb-2">
         <label for="customRange" class="form-label d-flex justify-content-between">Font Size Categoria</label>
         <div class="d-flex align-items-center justify-content-between">
-            <p>Valore pre-impostato: {{ $style->font_size_cat }}px</p>
+            <p>Valore pre-impostato: @if (isset($style)) {{ $style->font_size_cat }}px @endif </p>
             <p> Nuovo valore: <span class="fs-5" id="rangeValue"> </span>px</p>
         </div>
-        <input type="range" value="{{ $style->font_size_cat }}" data-range="{{ $style->font_size_cat }}" min="0" max="40" name="font_size_cat" class="form-range" id="customRange">
+        <input type="range" @if (isset($style)) value="{{ $style->font_size_cat }}"  data-range="{{ $style->font_size_cat }}" @endif min="0" max="40" name="font_size_cat" class="form-range" id="customRange">
 
     </div>
     <div class="col-12 col-md-6 mb-2">
         <label for="customRange2" class="form-label d-flex justify-content-between">Font Size Prodotti</label>
         <div class="d-flex align-items-center justify-content-between">
-            <p>Valore pre-impostato: {{ $style->font_size }}px</p>
+            <p>Valore pre-impostato: @if (isset($style)) {{ $style->font_size }}px @endif</p>
             <p> Nuovo valore: <span class="fs-5" id="rangeValue2"> </span>px</p>
         </div>
-        <input type="range" value="{{ $style->font_size }}" min="0" max="40" name="font_size" class="form-range" id="customRange2">
+        <input type="range" @if (isset($style)) value="{{ $style->font_size }}" @endif min="0" max="40" name="font_size" class="form-range" id="customRange2">
     </div>
     <div class="col-12 col-md-6 mb-2">
         <label for="exampleColorInput" class="form-label">Colore Accordion</label>
