@@ -101,9 +101,9 @@ function Example() {
                     <div key={i + 1}>
                         <div className='d-flex justify-content-between align-items-center h-100 pt-3'>
                             {booleanFlag ?
-                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{product.name}</h2>
+                            <h2 style={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{product.name}</h2>
                             :
-                            <h2 sx={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{
+                            <h2 style={{ fontSize: `${user.style.font_size}px` }}  className='fw-bold'>{
                                 product.name_eng !== null ?
                                 product.name_eng :
                                 product.name
@@ -111,7 +111,7 @@ function Example() {
                             }
                             <div>
                             {!product.price_bottle &&
-                                <h4 className="price">
+                                <h4 style={{ fontSize: `${user.style.font_size}px` }} className="price">
                                         €{product.price}
                                 </h4>
                             }
@@ -122,22 +122,22 @@ function Example() {
                         {product.price_bottle &&
                             <div className='d-flex justify-content-between align-items-center'>
                                 {product.price_goblet &&
-                                    <h2 className='pt-3'>Prezzo calice: €{product.price_goblet}</h2>
+                                    <h2 style={{ fontSize: `${user.style.font_size}px` }} className='pt-3'>Prezzo calice: €{product.price_goblet}</h2>
                                 }
                                 <div>
-                                    <h4 className="price">Prezzo bottiglia: €{product.price_bottle}</h4>
+                                    <h4 style={{ fontSize: `${user.style.font_size}px` }} className="price">Prezzo bottiglia: €{product.price_bottle}</h4>
                                 </div>
                             </div>
                         }
 
                         {product.quantity_cl &&
-                                <h4 className="price mt-2">
+                                <h4 style={{ fontSize: `${user.style.font_size}px` }} className="price mt-2">
                                         Quantità: {product.quantity_cl} CL
                                 </h4>
                         }
 
                         {product.quantity_lt &&
-                                <h4 className="price mt-2">
+                                <h4 style={{ fontSize: `${user.style.font_size}px` }} className="price mt-2">
                                         Quantità: {product.quantity_lt} LT
                                 </h4>
                         }
