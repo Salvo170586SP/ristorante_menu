@@ -121,7 +121,15 @@ function Example() {
                             </div>
                         </div>
                         
+                        {booleanFlag ?
                         <p style={{ fontSize: `${user.style.font_size}px` }} className="pt-2">{product.description}</p>
+                        :
+                        <p style={{ fontSize: `${user.style.font_size}px` }} className="pt-2">{
+                            product.description_eng !== null ?
+                            product.description_eng :
+                            product.description
+                            }</p>
+                        }
                         {product.price_bottle &&
                             <div className='d-flex justify-content-between align-items-center'>
                                 {product.price_goblet &&
