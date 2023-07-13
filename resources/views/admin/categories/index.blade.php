@@ -62,6 +62,7 @@
             <table class="table shadow">
                 <thead>
                     <tr>
+                        <th>Posizione</th>
                         <th>Nome</th>
                         <th>Nome Inglese</th>
                         <th class="text-end">Azioni</th>
@@ -70,6 +71,14 @@
                 <tbody>
                     @forelse($categories as $cat)
                     <tr>
+                        <td class="w-50" >
+                            <form action="{{ route('admin.categories.updatePosition', $cat->id) }}" method="post" class="d-flex">
+                                @csrf
+                             
+                                <input type="number" min="1" max="{{ count($categories) }}" style="width: 10%" class="form-control" value="{{ old('position',  $cat->position) }}" name="position">
+                                <button class="btn btn-secondary ms-2">Salva posizione</button>
+                            </form>
+                        </td>
                         <td>{{ $cat->name_category }}</td>
                         <td>
                             @if ($cat->name_category_eng)

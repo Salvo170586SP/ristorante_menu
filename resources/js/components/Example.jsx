@@ -15,16 +15,19 @@ function Example() {
     const [mainMenu, setMainMenu] = React.useState([])
     const [boolean, setBoolean] = React.useState(true)
     const [booleanFlag, setBooleanFlag] = React.useState(true)
+    const [position, setPosition] = React.useState([]);
 
 
     React.useEffect(() => {
         setBoolean(true)
         axios({
             method: "GET",
-            url: "http://www.plantapalermo.it/menuplanta/public/api/user_products/1",
+            url: "http://www.plantapalermo.it/menuplanta/public/api/user_products/1", 
             
          }).then(( { data }) => {
             setMainMenu(data);
+            data.sort((a, b) => a.position - b.position);
+            setPosition(data);
          }).catch(err => {
             console.log(err)
          });

@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('user_id', Auth::id())->paginate(8);
+        $categories = Category::where('user_id', Auth::id())->orderBy('position', 'ASC')->paginate(8);
 
         return view('admin.categories.index', compact('categories'));
     }
@@ -105,5 +105,35 @@ class CategoryController extends Controller
         $category->delete();
 
         return back()->with('message', "$category->name eliminato con successo");
+    }
+
+    public function updatePosition(Request $request, Category $category)
+    {
+        //FUNZIONANTE
+        // Controlla se il nuovo numero di posizione è diverso da quello attuale
+        if ($category->position != $request->position) {
+            // Calcola la differenza di posizione
+            $differenzaPosizione = $request->position - $category->position;
+
+            // Se la nuova posizione è maggiore, sposta gli altri elementi verso l'alto
+            if ($differenzaPosizione > 0) {
+                Category::where('user_id', '=', Auth::id())->where('position', '>', $category->position)
+                    ->where('position', '<=', $request->position)
+                    ->decrement('position');
+            }
+
+            // Se la nuova posizione è minore, sposta gli altri elementi verso il basso
+            elseif ($differenzaPosizione < 0) {
+                Category::where('user_id', '=', Auth::id())->where('position', '>=', $request->position)
+                    ->where('position', '<', $category->position)
+                    ->increment('position');
+            }
+
+            // Aggiorna la posizione dell'elemento corrente
+            $category->position = $request->position;
+            $category->save();
+        }
+
+        return redirect()->back()->with('message', "$category->name_category spostato nella posizione $category->position");
     }
 }
