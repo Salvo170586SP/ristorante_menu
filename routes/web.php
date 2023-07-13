@@ -24,6 +24,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
     //Categories
     Route::resource('/categories',  CategoryController::class);
+    Route::post('/categories/updatePosition/{category}',  [CategoryController::class, 'updatePosition'])->name('categories.updatePosition');
+
     //Products
     Route::resource('/products',  ProductController::class);
     //Styles
