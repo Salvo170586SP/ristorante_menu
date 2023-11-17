@@ -9,7 +9,7 @@
         </div>
         <div class="col-12">
             @include('includes.errorsAlert')
-            <form action="{{ route('admin.products.store') }}" method="post" class="mt-5">
+            <form action="{{ route('admin.products.store') }}" method="post" class="mt-5" enctype="multipart/form-data">
                 @csrf
                 @include('admin.products.form')
                 <p>* i campi sono obbligatori</p>

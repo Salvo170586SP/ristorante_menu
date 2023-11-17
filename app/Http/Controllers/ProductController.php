@@ -7,6 +7,7 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -67,6 +68,12 @@ class ProductController extends Controller
             $product->quantity_cl = $request->quantity_cl;
             $product->quantity_lt = $request->quantity_lt;
             $product->category_id = $request->category_id;
+
+            if (array_key_exists('url_img', $request->all())) {
+                $url = Storage::put('/imgs_product', $request['url_img']);
+                $product->url_img = $url;
+            }
+
             $product->save();
 
             return redirect()->route('admin.products.index')->with('message', "$product->name creato con successo");;
@@ -121,6 +128,17 @@ class ProductController extends Controller
 
         try {
 
+             //UPDATE DELL'IMMAGINE MA SE NON CARICO UN ALTRA IMMAGINE ELIMINA L'IMMAGINE ESISTENTE E METTE IL PLACEHOLDER
+             if ($request->hasfile('url_img')) {
+
+                if ($product->url_img == true) {
+                    Storage::delete($product->url_img);
+                }
+                
+                $url = Storage::put('/imgs_product', $request->file('url_img'));
+                $product->url_img = $url;
+            }
+
             $product->update([
                 'name' => $request->name,
                 'name_eng' => $request->name_eng,
@@ -147,8 +165,25 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->url_img) {
+            Storage::delete($product->url_img);
+        }
+
         $product->delete();
 
         return back()->with('message', "$product->name eliminato con successo");
+    }
+
+    public function delete_img(Product $product)
+    {
+        if ($product->url_img) {
+            Storage::delete($product->url_img);
+             // Imposta il campo 'url_img' su null
+             $product->url_img = null;
+             // Salva le modifiche nel database
+             $product->save();
+        }
+
+        return back();
     }
 }

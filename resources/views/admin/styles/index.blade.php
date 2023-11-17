@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 px-5 d-flex justify-content-between align-items-center">
+        <div class="col-12 px-5 d-flex justify-content-between align-items-center flex-column">
             <h1>Le tue Impostazioni</h1>
-            <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2 ">Torna alla dashboard</a>
+            <a href="{{ url('admin') }}" class="btn btn-secondary shadow px-5 py-2 my-3">Torna alla dashboard</a>
         </div>
 
         @include('includes.alert')

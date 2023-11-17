@@ -6,6 +6,7 @@ use App\Models\Category;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -43,6 +44,12 @@ class CategoryController extends Controller
             $category->name_category = $request->name_category;
             $category->name_category_eng = $request->name_category_eng;
             $category->user_id = Auth::id();
+
+            if (array_key_exists('url_img', $request->all())) {
+                $url = Storage::put('/imgs_category', $request['url_img']);
+                $category->url_img = $url;
+            }
+
             $category->save();
 
             return redirect()->route('admin.categories.index')->with('message', "$category->name creato con successo");;
@@ -85,6 +92,16 @@ class CategoryController extends Controller
 
         try {
 
+               //UPDATE DELL'IMMAGINE MA SE NON CARICO UN ALTRA IMMAGINE ELIMINA L'IMMAGINE ESISTENTE E METTE IL PLACEHOLDER
+               if ($request->hasfile('url_img')) {
+                if ($category->url_img == true) {
+                    Storage::delete($category->url_img);
+                }
+
+                $url = Storage::put('/imgs_category', $request->file('url_img'));
+                $category->url_img = $url;
+            }
+
             $category->update([
                 'name_category' => $request->name_category,
                 'name_category_eng' => $request->name_category_eng,
@@ -102,6 +119,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->url_img) {
+            Storage::delete($category->url_img);
+        }
+
         $category->delete();
 
         return back()->with('message', "$category->name eliminato con successo");
@@ -135,5 +156,18 @@ class CategoryController extends Controller
         }
 
         return redirect()->back()->with('message', "$category->name_category spostato nella posizione $category->position");
+    }
+
+    public function delete_img(Category $category)
+    {
+        if ($category->url_img) {
+            Storage::delete($category->url_img);
+            // Imposta il campo 'url_img' su null
+            $category->url_img = null;
+            // Salva le modifiche nel database
+            $category->save();
+        }
+
+        return back();
     }
 }

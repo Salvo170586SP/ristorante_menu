@@ -9,7 +9,7 @@
         </div>
         <div class="col-12">
             @include('includes.errorsAlert')
-            <form action="{{ route('admin.categories.update', $category->id) }}" method="post" class="mt-5">
+            <form action="{{ route('admin.categories.update', $category->id) }}" method="post" class="mt-5" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 @include('admin.categories.form')

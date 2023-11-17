@@ -20,6 +20,7 @@ class Product extends Model
         'price_bottle',
         'quantity_cl',
         'quantity_lt',
+        'url_img',
         'category_id',
     ];
 

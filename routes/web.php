@@ -25,9 +25,12 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     //Categories
     Route::resource('/categories',  CategoryController::class);
     Route::post('/categories/updatePosition/{category}',  [CategoryController::class, 'updatePosition'])->name('categories.updatePosition');
+    Route::get('/categories/delete_img/{category}',  [CategoryController::class, 'delete_img'])->name('categories.delete_img');
 
     //Products
     Route::resource('/products',  ProductController::class);
+    Route::get('/products/delete_img/{product}',  [ProductController::class, 'delete_img'])->name('products.delete_img');
+
     //Styles
     Route::resource('/styles',  StyleController::class);
 
