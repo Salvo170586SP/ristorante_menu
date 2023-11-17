@@ -128,4 +128,8 @@
         </div>
         @enderror
     </div>
+    <div class="col-md-3 mb-5">
+        <label for="img">Immagine prodotto</label>
+        <input type="file" class="form-control" id="img" name="url_img">
+    </div>
 </div>

@@ -17,4 +17,8 @@
         </div>
         @enderror
     </div>
+    <div class="col-md-3 mb-5">
+        <label for="img_cat">Immagine categoria</label>
+        <input type="file" class="form-control" id="img_cat" name="url_img">
+    </div>
 </div>

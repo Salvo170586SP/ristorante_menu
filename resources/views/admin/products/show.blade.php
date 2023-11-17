@@ -11,6 +11,15 @@
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-body">
+                    @if(file_exists(public_path('storage/' . $product->url_img))&& $product->url_img)
+                    <figure class="d-flex justify-content-center mb-5">
+                        <img src="{{ asset('storage/' . $product->url_img) }}" width="300" alt="img" class="img-fluid rounded">
+                    </figure>
+                    @else
+                    <div class="d-flex justify-content-center mb-5">
+                        <div class="border rounded p-5">NO IMAGE</div>
+                    </div>
+                    @endif
                     <h5 class="card-title mb-3">Nome: {{ $product->name }}</h5>
                     <h5 class="card-title mb-3">Nome in inglese: 
                         @if ($product->name_eng) 
